@@ -1,6 +1,3 @@
-use scraper::Html;
-use std::{fs::File, io::Read};
-
 // What to scrap:
 //
 // 1. opcode: One or two bytes number which is an identifier of an instruction.
@@ -13,18 +10,13 @@ use std::{fs::File, io::Read};
 // 6. flags: The information about how the 4 flags in the flag register are updated after the instruction execution.
 // 7. cycles: The number of cycles required to execute the instruction.
 //            This is important when we emulate I/O devices together with CPU.
+// 8. group: Which group the opcode belongs to
+
+pub mod html_scraper;
+
+use crate::html_scraper::scrap_html;
 
 fn main() {
-    const HTML_FILE_PATH: &str = "gbops.html";
-
-    // open html file in read-only mode
-    let mut file =
-        File::open(HTML_FILE_PATH).expect(&format!("Failed to open file \"{}\"", HTML_FILE_PATH));
-
-    // store file content in a string
-    let mut content = String::new();
-    file.read_to_string(&mut content)
-        .expect("Failed to read file");
-
-    let document = Html::parse_document(&content);
+    let (non_cb, cb) = scrap_html();
+    
 }
