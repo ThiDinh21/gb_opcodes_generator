@@ -1,0 +1,2450 @@
+28-0
+JR Z,i8
+2 8t-12t
+- - - -
+
+38-0
+JR C,i8
+2 8t-12t
+- - - -
+
+4B-8
+LD C,E
+1 4t
+- - - -
+
+05-8
+DEC B
+1 4t
+Z 1 H -
+
+31-16
+LD SP,u16
+3 12t
+- - - -
+
+3F-8
+CCF
+1 4t
+- 0 0 C
+
+A1-8
+AND A,C
+1 4t
+Z 0 1 0
+
+63-8
+LD H,E
+1 4t
+- - - -
+
+A2-8
+AND A,D
+1 4t
+Z 0 1 0
+
+36-8
+LD (HL),u8
+2 12t
+- - - -
+
+F7-0
+RST 30h
+1 16t
+- - - -
+
+41-8
+LD B,C
+1 4t
+- - - -
+
+2B-16
+DEC HL
+1 8t
+- - - -
+
+02-8
+LD (BC),A
+1 8t
+- - - -
+
+F3-0
+DI
+1 4t
+- - - -
+
+F5-16
+PUSH AF
+1 16t
+- - - -
+
+37-8
+SCF
+1 4t
+- 0 0 1
+
+68-8
+LD L,B
+1 4t
+- - - -
+
+77-8
+LD (HL),A
+1 8t
+- - - -
+
+D8-0
+RET C
+1 8t-20t
+- - - -
+
+92-8
+SUB A,D
+1 4t
+Z 1 H C
+
+3A-8
+LD A,(HL-)
+1 8t
+- - - -
+
+C4-0
+CALL NZ,u16
+3 12t-24t
+- - - -
+
+B7-8
+OR A,A
+1 4t
+Z 0 0 0
+
+01-16
+LD BC,u16
+3 12t
+- - - -
+
+18-0
+JR i8
+2 12t
+- - - -
+
+27-8
+DAA
+1 4t
+Z - 0 C
+
+15-8
+DEC D
+1 4t
+Z 1 H -
+
+29-16
+ADD HL,HL
+1 8t
+- 0 H C
+
+11-16
+LD DE,u16
+3 12t
+- - - -
+
+AC-8
+XOR A,H
+1 4t
+Z 0 0 0
+
+53-8
+LD D,E
+1 4t
+- - - -
+
+4A-8
+LD C,D
+1 4t
+- - - -
+
+70-8
+LD (HL),B
+1 8t
+- - - -
+
+74-8
+LD (HL),H
+1 8t
+- - - -
+
+19-16
+ADD HL,DE
+1 8t
+- 0 H C
+
+85-8
+ADD A,L
+1 4t
+Z 0 H C
+
+21-16
+LD HL,u16
+3 12t
+- - - -
+
+2C-8
+INC L
+1 4t
+Z 0 H -
+
+CB-0
+PREFIX CB
+1 4t
+- - - -
+
+43-8
+LD B,E
+1 4t
+- - - -
+
+76-0
+HALT
+1 4t
+- - - -
+
+B5-8
+OR A,L
+1 4t
+Z 0 0 0
+
+D5-16
+PUSH DE
+1 16t
+- - - -
+
+1C-8
+INC E
+1 4t
+Z 0 H -
+
+B3-8
+OR A,E
+1 4t
+Z 0 0 0
+
+64-8
+LD H,H
+1 4t
+- - - -
+
+DC-0
+CALL C,u16
+3 12t-24t
+- - - -
+
+E2-8
+LD (FF00+C),A
+1 8t
+- - - -
+
+60-8
+LD H,B
+1 4t
+- - - -
+
+E6-8
+AND A,u8
+2 8t
+Z 0 1 0
+
+E9-0
+JP HL
+1 4t
+- - - -
+
+87-8
+ADD A,A
+1 4t
+Z 0 H C
+
+D4-0
+CALL NC,u16
+3 12t-24t
+- - - -
+
+3E-8
+LD A,u8
+2 8t
+- - - -
+
+20-0
+JR NZ,i8
+2 8t-12t
+- - - -
+
+D1-16
+POP DE
+1 12t
+- - - -
+
+DA-0
+JP C,u16
+3 12t-16t
+- - - -
+
+58-8
+LD E,B
+1 4t
+- - - -
+
+2A-8
+LD A,(HL+)
+1 8t
+- - - -
+
+FF-0
+RST 38h
+1 16t
+- - - -
+
+03-16
+INC BC
+1 8t
+- - - -
+
+BA-8
+CP A,D
+1 4t
+Z 1 H C
+
+AD-8
+XOR A,L
+1 4t
+Z 0 0 0
+
+79-8
+LD A,C
+1 4t
+- - - -
+
+B1-8
+OR A,C
+1 4t
+Z 0 0 0
+
+DE-8
+SBC A,u8
+2 8t
+Z 1 H C
+
+98-8
+SBC A,B
+1 4t
+Z 1 H C
+
+14-8
+INC D
+1 4t
+Z 0 H -
+
+E0-8
+LD (FF00+u8),A
+2 12t
+- - - -
+
+33-16
+INC SP
+1 8t
+- - - -
+
+35-8
+DEC (HL)
+1 12t
+Z 1 H -
+
+EF-0
+RST 28h
+1 16t
+- - - -
+
+B8-8
+CP A,B
+1 4t
+Z 1 H C
+
+BC-8
+CP A,H
+1 4t
+Z 1 H C
+
+47-8
+LD B,A
+1 4t
+- - - -
+
+C5-16
+PUSH BC
+1 16t
+- - - -
+
+B6-8
+OR A,(HL)
+1 8t
+Z 0 0 0
+
+CD-0
+CALL u16
+3 24t
+- - - -
+
+67-8
+LD H,A
+1 4t
+- - - -
+
+55-8
+LD D,L
+1 4t
+- - - -
+
+42-8
+LD B,D
+1 4t
+- - - -
+
+83-8
+ADD A,E
+1 4t
+Z 0 H C
+
+C1-16
+POP BC
+1 12t
+- - - -
+
+32-8
+LD (HL-),A
+1 8t
+- - - -
+
+CA-0
+JP Z,u16
+3 12t-16t
+- - - -
+
+5B-8
+LD E,E
+1 4t
+- - - -
+
+0B-16
+DEC BC
+1 8t
+- - - -
+
+6F-8
+LD L,A
+1 4t
+- - - -
+
+00-0
+NOP
+1 4t
+- - - -
+
+A5-8
+AND A,L
+1 4t
+Z 0 1 0
+
+24-8
+INC H
+1 4t
+Z 0 H -
+
+FE-8
+CP A,u8
+2 8t
+Z 1 H C
+
+1A-8
+LD A,(DE)
+1 8t
+- - - -
+
+FA-8
+LD A,(u16)
+3 16t
+- - - -
+
+8D-8
+ADC A,L
+1 4t
+Z 0 H C
+
+5D-8
+LD E,L
+1 4t
+- - - -
+
+3D-8
+DEC A
+1 4t
+Z 1 H -
+
+6A-8
+LD L,D
+1 4t
+- - - -
+
+50-8
+LD D,B
+1 4t
+- - - -
+
+7D-8
+LD A,L
+1 4t
+- - - -
+
+AB-8
+XOR A,E
+1 4t
+Z 0 0 0
+
+C7-0
+RST 00h
+1 16t
+- - - -
+
+7E-8
+LD A,(HL)
+1 8t
+- - - -
+
+7A-8
+LD A,D
+1 4t
+- - - -
+
+04-8
+INC B
+1 4t
+Z 0 H -
+
+9A-8
+SBC A,D
+1 4t
+Z 1 H C
+
+E5-16
+PUSH HL
+1 16t
+- - - -
+
+D6-8
+SUB A,u8
+2 8t
+Z 1 H C
+
+86-8
+ADD A,(HL)
+1 8t
+Z 0 H C
+
+08-16
+LD (u16),SP
+3 20t
+- - - -
+
+0E-8
+LD C,u8
+2 8t
+- - - -
+
+73-8
+LD (HL),E
+1 8t
+- - - -
+
+96-8
+SUB A,(HL)
+1 8t
+Z 1 H C
+
+84-8
+ADD A,H
+1 4t
+Z 0 H C
+
+69-8
+LD L,C
+1 4t
+- - - -
+
+25-8
+DEC H
+1 4t
+Z 1 H -
+
+D7-0
+RST 10h
+1 16t
+- - - -
+
+7B-8
+LD A,E
+1 4t
+- - - -
+
+6C-8
+LD L,H
+1 4t
+- - - -
+
+CF-0
+RST 08h
+1 16t
+- - - -
+
+9F-8
+SBC A,A
+1 4t
+Z 1 H C
+
+1B-16
+DEC DE
+1 8t
+- - - -
+
+66-8
+LD H,(HL)
+1 8t
+- - - -
+
+4E-8
+LD C,(HL)
+1 8t
+- - - -
+
+C3-0
+JP u16
+3 16t
+- - - -
+
+0D-8
+DEC C
+1 4t
+Z 1 H -
+
+5E-8
+LD E,(HL)
+1 8t
+- - - -
+
+6B-8
+LD L,E
+1 4t
+- - - -
+
+C0-0
+RET NZ
+1 8t-20t
+- - - -
+
+4D-8
+LD C,L
+1 4t
+- - - -
+
+1D-8
+DEC E
+1 4t
+Z 1 H -
+
+B9-8
+CP A,C
+1 4t
+Z 1 H C
+
+10-0
+STOP
+1 4t
+- - - -
+
+56-8
+LD D,(HL)
+1 8t
+- - - -
+
+89-8
+ADC A,C
+1 4t
+Z 0 H C
+
+AE-8
+XOR A,(HL)
+1 8t
+Z 0 0 0
+
+E8-16
+ADD SP,i8
+2 16t
+0 0 H C
+
+F1-16
+POP AF
+1 12t
+Z N H C
+
+C2-0
+JP NZ,u16
+3 12t-16t
+- - - -
+
+99-8
+SBC A,C
+1 4t
+Z 1 H C
+
+46-8
+LD B,(HL)
+1 8t
+- - - -
+
+C8-0
+RET Z
+1 8t-20t
+- - - -
+
+12-8
+LD (DE),A
+1 8t
+- - - -
+
+62-8
+LD H,D
+1 4t
+- - - -
+
+5A-8
+LD E,D
+1 4t
+- - - -
+
+EA-8
+LD (u16),A
+3 16t
+- - - -
+
+C6-8
+ADD A,u8
+2 8t
+Z 0 H C
+
+9B-8
+SBC A,E
+1 4t
+Z 1 H C
+
+93-8
+SUB A,E
+1 4t
+Z 1 H C
+
+A0-8
+AND A,B
+1 4t
+Z 0 1 0
+
+CC-0
+CALL Z,u16
+3 12t-24t
+- - - -
+
+48-8
+LD C,B
+1 4t
+- - - -
+
+39-16
+ADD HL,SP
+1 8t
+- 0 H C
+
+75-8
+LD (HL),L
+1 8t
+- - - -
+
+30-0
+JR NC,i8
+2 8t-12t
+- - - -
+
+34-8
+INC (HL)
+1 12t
+Z 0 H -
+
+49-8
+LD C,C
+1 4t
+- - - -
+
+3C-8
+INC A
+1 4t
+Z 0 H -
+
+AF-8
+XOR A,A
+1 4t
+Z 0 0 0
+
+7C-8
+LD A,H
+1 4t
+- - - -
+
+6E-8
+LD L,(HL)
+1 8t
+- - - -
+
+2F-8
+CPL
+1 4t
+- 1 1 -
+
+16-8
+LD D,u8
+2 8t
+- - - -
+
+CE-8
+ADC A,u8
+2 8t
+Z 0 H C
+
+8B-8
+ADC A,E
+1 4t
+Z 0 H C
+
+3B-16
+DEC SP
+1 8t
+- - - -
+
+54-8
+LD D,H
+1 4t
+- - - -
+
+8A-8
+ADC A,D
+1 4t
+Z 0 H C
+
+B0-8
+OR A,B
+1 4t
+Z 0 0 0
+
+9D-8
+SBC A,L
+1 4t
+Z 1 H C
+
+D2-0
+JP NC,u16
+3 12t-16t
+- - - -
+
+A6-8
+AND A,(HL)
+1 8t
+Z 0 1 0
+
+F2-8
+LD A,(FF00+C)
+1 8t
+- - - -
+
+5C-8
+LD E,H
+1 4t
+- - - -
+
+44-8
+LD B,H
+1 4t
+- - - -
+
+E1-16
+POP HL
+1 12t
+- - - -
+
+EE-8
+XOR A,u8
+2 8t
+Z 0 0 0
+
+F0-8
+LD A,(FF00+u8)
+2 12t
+- - - -
+
+07-8
+RLCA
+1 4t
+0 0 0 C
+
+52-8
+LD D,D
+1 4t
+- - - -
+
+9C-8
+SBC A,H
+1 4t
+Z 1 H C
+
+A4-8
+AND A,H
+1 4t
+Z 0 1 0
+
+8F-8
+ADC A,A
+1 4t
+Z 0 H C
+
+91-8
+SUB A,C
+1 4t
+Z 1 H C
+
+23-16
+INC HL
+1 8t
+- - - -
+
+4C-8
+LD C,H
+1 4t
+- - - -
+
+BE-8
+CP A,(HL)
+1 8t
+Z 1 H C
+
+40-8
+LD B,B
+1 4t
+- - - -
+
+51-8
+LD D,C
+1 4t
+- - - -
+
+80-8
+ADD A,B
+1 4t
+Z 0 H C
+
+26-8
+LD H,u8
+2 8t
+- - - -
+
+61-8
+LD H,C
+1 4t
+- - - -
+
+94-8
+SUB A,H
+1 4t
+Z 1 H C
+
+81-8
+ADD A,C
+1 4t
+Z 0 H C
+
+06-8
+LD B,u8
+2 8t
+- - - -
+
+A3-8
+AND A,E
+1 4t
+Z 0 1 0
+
+A9-8
+XOR A,C
+1 4t
+Z 0 0 0
+
+B4-8
+OR A,H
+1 4t
+Z 0 0 0
+
+BB-8
+CP A,E
+1 4t
+Z 1 H C
+
+D9-0
+RETI
+1 16t
+- - - -
+
+88-8
+ADC A,B
+1 4t
+Z 0 H C
+
+90-8
+SUB A,B
+1 4t
+Z 1 H C
+
+45-8
+LD B,L
+1 4t
+- - - -
+
+59-8
+LD E,C
+1 4t
+- - - -
+
+A7-8
+AND A,A
+1 4t
+Z 0 1 0
+
+BD-8
+CP A,L
+1 4t
+Z 1 H C
+
+6D-8
+LD L,L
+1 4t
+- - - -
+
+97-8
+SUB A,A
+1 4t
+Z 1 H C
+
+BF-8
+CP A,A
+1 4t
+Z 1 H C
+
+09-16
+ADD HL,BC
+1 8t
+- 0 H C
+
+95-8
+SUB A,L
+1 4t
+Z 1 H C
+
+13-16
+INC DE
+1 8t
+- - - -
+
+DF-0
+RST 18h
+1 16t
+- - - -
+
+F8-16
+LD HL,SP+i8
+2 12t
+0 0 H C
+
+2D-8
+DEC L
+1 4t
+Z 1 H -
+
+1F-8
+RRA
+1 4t
+0 0 0 C
+
+F9-16
+LD SP,HL
+1 8t
+- - - -
+
+65-8
+LD H,L
+1 4t
+- - - -
+
+4F-8
+LD C,A
+1 4t
+- - - -
+
+78-8
+LD A,B
+1 4t
+- - - -
+
+7F-8
+LD A,A
+1 4t
+- - - -
+
+E7-0
+RST 20h
+1 16t
+- - - -
+
+72-8
+LD (HL),D
+1 8t
+- - - -
+
+71-8
+LD (HL),C
+1 8t
+- - - -
+
+1E-8
+LD E,u8
+2 8t
+- - - -
+
+0A-8
+LD A,(BC)
+1 8t
+- - - -
+
+F6-8
+OR A,u8
+2 8t
+Z 0 0 0
+
+0C-8
+INC C
+1 4t
+Z 0 H -
+
+8C-8
+ADC A,H
+1 4t
+Z 0 H C
+
+8E-8
+ADC A,(HL)
+1 8t
+Z 0 H C
+
+22-8
+LD (HL+),A
+1 8t
+- - - -
+
+C9-0
+RET
+1 16t
+- - - -
+
+82-8
+ADD A,D
+1 4t
+Z 0 H C
+
+D0-0
+RET NC
+1 8t-20t
+- - - -
+
+0F-8
+RRCA
+1 4t
+0 0 0 C
+
+9E-8
+SBC A,(HL)
+1 8t
+Z 1 H C
+
+A8-8
+XOR A,B
+1 4t
+Z 0 0 0
+
+AA-8
+XOR A,D
+1 4t
+Z 0 0 0
+
+17-8
+RLA
+1 4t
+0 0 0 C
+
+FB-0
+EI
+1 4t
+- - - -
+
+5F-8
+LD E,A
+1 4t
+- - - -
+
+2E-8
+LD L,u8
+2 8t
+- - - -
+
+B2-8
+OR A,D
+1 4t
+Z 0 0 0
+
+57-8
+LD D,A
+1 4t
+- - - -
+
+67-8
+LD H,A
+1 4t
+- - - -
+
+6B-8
+LD L,E
+1 4t
+- - - -
+
+A0-8
+AND A,B
+1 4t
+Z 0 1 0
+
+B0-8
+OR A,B
+1 4t
+Z 0 0 0
+
+DE-8
+SBC A,u8
+2 8t
+Z 1 H C
+
+86-8
+ADD A,(HL)
+1 8t
+Z 0 H C
+
+4C-8
+LD C,H
+1 4t
+- - - -
+
+6F-8
+LD L,A
+1 4t
+- - - -
+
+1E-8
+LD E,u8
+2 8t
+- - - -
+
+05-8
+DEC B
+1 4t
+Z 1 H -
+
+41-8
+LD B,C
+1 4t
+- - - -
+
+39-16
+ADD HL,SP
+1 8t
+- 0 H C
+
+50-8
+LD D,B
+1 4t
+- - - -
+
+81-8
+ADD A,C
+1 4t
+Z 0 H C
+
+23-16
+INC HL
+1 8t
+- - - -
+
+BE-8
+CP A,(HL)
+1 8t
+Z 1 H C
+
+BF-8
+CP A,A
+1 4t
+Z 1 H C
+
+5A-8
+LD E,D
+1 4t
+- - - -
+
+D8-0
+RET C
+1 8t-20t
+- - - -
+
+B6-8
+OR A,(HL)
+1 8t
+Z 0 0 0
+
+71-8
+LD (HL),C
+1 8t
+- - - -
+
+9E-8
+SBC A,(HL)
+1 8t
+Z 1 H C
+
+73-8
+LD (HL),E
+1 8t
+- - - -
+
+BA-8
+CP A,D
+1 4t
+Z 1 H C
+
+FB-0
+EI
+1 4t
+- - - -
+
+F3-0
+DI
+1 4t
+- - - -
+
+D7-0
+RST 10h
+1 16t
+- - - -
+
+95-8
+SUB A,L
+1 4t
+Z 1 H C
+
+0A-8
+LD A,(BC)
+1 8t
+- - - -
+
+52-8
+LD D,D
+1 4t
+- - - -
+
+54-8
+LD D,H
+1 4t
+- - - -
+
+D5-16
+PUSH DE
+1 16t
+- - - -
+
+F2-8
+LD A,(FF00+C)
+1 8t
+- - - -
+
+AE-8
+XOR A,(HL)
+1 8t
+Z 0 0 0
+
+CC-0
+CALL Z,u16
+3 12t-24t
+- - - -
+
+B5-8
+OR A,L
+1 4t
+Z 0 0 0
+
+43-8
+LD B,E
+1 4t
+- - - -
+
+45-8
+LD B,L
+1 4t
+- - - -
+
+89-8
+ADC A,C
+1 4t
+Z 0 H C
+
+51-8
+LD D,C
+1 4t
+- - - -
+
+C2-0
+JP NZ,u16
+3 12t-16t
+- - - -
+
+D1-16
+POP DE
+1 12t
+- - - -
+
+2A-8
+LD A,(HL+)
+1 8t
+- - - -
+
+37-8
+SCF
+1 4t
+- 0 0 1
+
+28-0
+JR Z,i8
+2 8t-12t
+- - - -
+
+1A-8
+LD A,(DE)
+1 8t
+- - - -
+
+8F-8
+ADC A,A
+1 4t
+Z 0 H C
+
+03-16
+INC BC
+1 8t
+- - - -
+
+0B-16
+DEC BC
+1 8t
+- - - -
+
+27-8
+DAA
+1 4t
+Z - 0 C
+
+5C-8
+LD E,H
+1 4t
+- - - -
+
+1B-16
+DEC DE
+1 8t
+- - - -
+
+61-8
+LD H,C
+1 4t
+- - - -
+
+77-8
+LD (HL),A
+1 8t
+- - - -
+
+65-8
+LD H,L
+1 4t
+- - - -
+
+A1-8
+AND A,C
+1 4t
+Z 0 1 0
+
+16-8
+LD D,u8
+2 8t
+- - - -
+
+A3-8
+AND A,E
+1 4t
+Z 0 1 0
+
+0C-8
+INC C
+1 4t
+Z 0 H -
+
+82-8
+ADD A,D
+1 4t
+Z 0 H C
+
+13-16
+INC DE
+1 8t
+- - - -
+
+10-0
+STOP
+1 4t
+- - - -
+
+4B-8
+LD C,E
+1 4t
+- - - -
+
+09-16
+ADD HL,BC
+1 8t
+- 0 H C
+
+74-8
+LD (HL),H
+1 8t
+- - - -
+
+7C-8
+LD A,H
+1 4t
+- - - -
+
+93-8
+SUB A,E
+1 4t
+Z 1 H C
+
+2D-8
+DEC L
+1 4t
+Z 1 H -
+
+22-8
+LD (HL+),A
+1 8t
+- - - -
+
+7A-8
+LD A,D
+1 4t
+- - - -
+
+2E-8
+LD L,u8
+2 8t
+- - - -
+
+EE-8
+XOR A,u8
+2 8t
+Z 0 0 0
+
+87-8
+ADD A,A
+1 4t
+Z 0 H C
+
+17-8
+RLA
+1 4t
+0 0 0 C
+
+A4-8
+AND A,H
+1 4t
+Z 0 1 0
+
+91-8
+SUB A,C
+1 4t
+Z 1 H C
+
+9F-8
+SBC A,A
+1 4t
+Z 1 H C
+
+14-8
+INC D
+1 4t
+Z 0 H -
+
+8D-8
+ADC A,L
+1 4t
+Z 0 H C
+
+AF-8
+XOR A,A
+1 4t
+Z 0 0 0
+
+3D-8
+DEC A
+1 4t
+Z 1 H -
+
+90-8
+SUB A,B
+1 4t
+Z 1 H C
+
+A5-8
+AND A,L
+1 4t
+Z 0 1 0
+
+A7-8
+AND A,A
+1 4t
+Z 0 1 0
+
+C4-0
+CALL NZ,u16
+3 12t-24t
+- - - -
+
+CD-0
+CALL u16
+3 24t
+- - - -
+
+D2-0
+JP NC,u16
+3 12t-16t
+- - - -
+
+DA-0
+JP C,u16
+3 12t-16t
+- - - -
+
+6D-8
+LD L,L
+1 4t
+- - - -
+
+E6-8
+AND A,u8
+2 8t
+Z 0 1 0
+
+F5-16
+PUSH AF
+1 16t
+- - - -
+
+12-8
+LD (DE),A
+1 8t
+- - - -
+
+58-8
+LD E,B
+1 4t
+- - - -
+
+0E-8
+LD C,u8
+2 8t
+- - - -
+
+9C-8
+SBC A,H
+1 4t
+Z 1 H C
+
+E5-16
+PUSH HL
+1 16t
+- - - -
+
+08-16
+LD (u16),SP
+3 20t
+- - - -
+
+49-8
+LD C,C
+1 4t
+- - - -
+
+7E-8
+LD A,(HL)
+1 8t
+- - - -
+
+98-8
+SBC A,B
+1 4t
+Z 1 H C
+
+A6-8
+AND A,(HL)
+1 8t
+Z 0 1 0
+
+C8-0
+RET Z
+1 8t-20t
+- - - -
+
+F7-0
+RST 30h
+1 16t
+- - - -
+
+34-8
+INC (HL)
+1 12t
+Z 0 H -
+
+64-8
+LD H,H
+1 4t
+- - - -
+
+85-8
+ADD A,L
+1 4t
+Z 0 H C
+
+E0-8
+LD (FF00+u8),A
+2 12t
+- - - -
+
+4A-8
+LD C,D
+1 4t
+- - - -
+
+32-8
+LD (HL-),A
+1 8t
+- - - -
+
+0F-8
+RRCA
+1 4t
+0 0 0 C
+
+D6-8
+SUB A,u8
+2 8t
+Z 1 H C
+
+F9-16
+LD SP,HL
+1 8t
+- - - -
+
+9B-8
+SBC A,E
+1 4t
+Z 1 H C
+
+C7-0
+RST 00h
+1 16t
+- - - -
+
+CF-0
+RST 08h
+1 16t
+- - - -
+
+2B-16
+DEC HL
+1 8t
+- - - -
+
+C5-16
+PUSH BC
+1 16t
+- - - -
+
+FE-8
+CP A,u8
+2 8t
+Z 1 H C
+
+72-8
+LD (HL),D
+1 8t
+- - - -
+
+7F-8
+LD A,A
+1 4t
+- - - -
+
+29-16
+ADD HL,HL
+1 8t
+- 0 H C
+
+3E-8
+LD A,u8
+2 8t
+- - - -
+
+78-8
+LD A,B
+1 4t
+- - - -
+
+25-8
+DEC H
+1 4t
+Z 1 H -
+
+8B-8
+ADC A,E
+1 4t
+Z 0 H C
+
+02-8
+LD (BC),A
+1 8t
+- - - -
+
+1F-8
+RRA
+1 4t
+0 0 0 C
+
+24-8
+INC H
+1 4t
+Z 0 H -
+
+35-8
+DEC (HL)
+1 12t
+Z 1 H -
+
+5D-8
+LD E,L
+1 4t
+- - - -
+
+56-8
+LD D,(HL)
+1 8t
+- - - -
+
+A8-8
+XOR A,B
+1 4t
+Z 0 0 0
+
+8A-8
+ADC A,D
+1 4t
+Z 0 H C
+
+E7-0
+RST 20h
+1 16t
+- - - -
+
+48-8
+LD C,B
+1 4t
+- - - -
+
+01-16
+LD BC,u16
+3 12t
+- - - -
+
+59-8
+LD E,C
+1 4t
+- - - -
+
+5B-8
+LD E,E
+1 4t
+- - - -
+
+26-8
+LD H,u8
+2 8t
+- - - -
+
+63-8
+LD H,E
+1 4t
+- - - -
+
+06-8
+LD B,u8
+2 8t
+- - - -
+
+07-8
+RLCA
+1 4t
+0 0 0 C
+
+76-0
+HALT
+1 4t
+- - - -
+
+7B-8
+LD A,E
+1 4t
+- - - -
+
+96-8
+SUB A,(HL)
+1 8t
+Z 1 H C
+
+9D-8
+SBC A,L
+1 4t
+Z 1 H C
+
+15-8
+DEC D
+1 4t
+Z 1 H -
+
+30-0
+JR NC,i8
+2 8t-12t
+- - - -
+
+2C-8
+INC L
+1 4t
+Z 0 H -
+
+47-8
+LD B,A
+1 4t
+- - - -
+
+BB-8
+CP A,E
+1 4t
+Z 1 H C
+
+9A-8
+SBC A,D
+1 4t
+Z 1 H C
+
+D0-0
+RET NC
+1 8t-20t
+- - - -
+
+84-8
+ADD A,H
+1 4t
+Z 0 H C
+
+5F-8
+LD E,A
+1 4t
+- - - -
+
+DC-0
+CALL C,u16
+3 12t-24t
+- - - -
+
+F0-8
+LD A,(FF00+u8)
+2 12t
+- - - -
+
+1D-8
+DEC E
+1 4t
+Z 1 H -
+
+6C-8
+LD L,H
+1 4t
+- - - -
+
+42-8
+LD B,D
+1 4t
+- - - -
+
+53-8
+LD D,E
+1 4t
+- - - -
+
+CA-0
+JP Z,u16
+3 12t-16t
+- - - -
+
+AD-8
+XOR A,L
+1 4t
+Z 0 0 0
+
+FA-8
+LD A,(u16)
+3 16t
+- - - -
+
+E8-16
+ADD SP,i8
+2 16t
+0 0 H C
+
+1C-8
+INC E
+1 4t
+Z 0 H -
+
+31-16
+LD SP,u16
+3 12t
+- - - -
+
+3B-16
+DEC SP
+1 8t
+- - - -
+
+62-8
+LD H,D
+1 4t
+- - - -
+
+B2-8
+OR A,D
+1 4t
+Z 0 0 0
+
+EA-8
+LD (u16),A
+3 16t
+- - - -
+
+8E-8
+ADC A,(HL)
+1 8t
+Z 0 H C
+
+C3-0
+JP u16
+3 16t
+- - - -
+
+99-8
+SBC A,C
+1 4t
+Z 1 H C
+
+EF-0
+RST 28h
+1 16t
+- - - -
+
+80-8
+ADD A,B
+1 4t
+Z 0 H C
+
+DF-0
+RST 18h
+1 16t
+- - - -
+
+CE-8
+ADC A,u8
+2 8t
+Z 0 H C
+
+AA-8
+XOR A,D
+1 4t
+Z 0 0 0
+
+3F-8
+CCF
+1 4t
+- 0 0 C
+
+92-8
+SUB A,D
+1 4t
+Z 1 H C
+
+44-8
+LD B,H
+1 4t
+- - - -
+
+4F-8
+LD C,A
+1 4t
+- - - -
+
+11-16
+LD DE,u16
+3 12t
+- - - -
+
+C1-16
+POP BC
+1 12t
+- - - -
+
+94-8
+SUB A,H
+1 4t
+Z 1 H C
+
+AB-8
+XOR A,E
+1 4t
+Z 0 0 0
+
+C6-8
+ADD A,u8
+2 8t
+Z 0 H C
+
+B7-8
+OR A,A
+1 4t
+Z 0 0 0
+
+A2-8
+AND A,D
+1 4t
+Z 0 1 0
+
+6E-8
+LD L,(HL)
+1 8t
+- - - -
+
+F8-16
+LD HL,SP+i8
+2 12t
+0 0 H C
+
+3A-8
+LD A,(HL-)
+1 8t
+- - - -
+
+3C-8
+INC A
+1 4t
+Z 0 H -
+
+38-0
+JR C,i8
+2 8t-12t
+- - - -
+
+A9-8
+XOR A,C
+1 4t
+Z 0 0 0
+
+D9-0
+RETI
+1 16t
+- - - -
+
+46-8
+LD B,(HL)
+1 8t
+- - - -
+
+40-8
+LD B,B
+1 4t
+- - - -
+
+60-8
+LD H,B
+1 4t
+- - - -
+
+83-8
+ADD A,E
+1 4t
+Z 0 H C
+
+18-0
+JR i8
+2 12t
+- - - -
+
+B3-8
+OR A,E
+1 4t
+Z 0 0 0
+
+7D-8
+LD A,L
+1 4t
+- - - -
+
+19-16
+ADD HL,DE
+1 8t
+- 0 H C
+
+33-16
+INC SP
+1 8t
+- - - -
+
+36-8
+LD (HL),u8
+2 12t
+- - - -
+
+04-8
+INC B
+1 4t
+Z 0 H -
+
+4E-8
+LD C,(HL)
+1 8t
+- - - -
+
+75-8
+LD (HL),L
+1 8t
+- - - -
+
+D4-0
+CALL NC,u16
+3 12t-24t
+- - - -
+
+70-8
+LD (HL),B
+1 8t
+- - - -
+
+E1-16
+POP HL
+1 12t
+- - - -
+
+B1-8
+OR A,C
+1 4t
+Z 0 0 0
+
+20-0
+JR NZ,i8
+2 8t-12t
+- - - -
+
+C9-0
+RET
+1 16t
+- - - -
+
+00-0
+NOP
+1 4t
+- - - -
+
+E9-0
+JP HL
+1 4t
+- - - -
+
+57-8
+LD D,A
+1 4t
+- - - -
+
+F6-8
+OR A,u8
+2 8t
+Z 0 0 0
+
+6A-8
+LD L,D
+1 4t
+- - - -
+
+8C-8
+ADC A,H
+1 4t
+Z 0 H C
+
+88-8
+ADC A,B
+1 4t
+Z 0 H C
+
+68-8
+LD L,B
+1 4t
+- - - -
+
+B9-8
+CP A,C
+1 4t
+Z 1 H C
+
+BD-8
+CP A,L
+1 4t
+Z 1 H C
+
+BC-8
+CP A,H
+1 4t
+Z 1 H C
+
+21-16
+LD HL,u16
+3 12t
+- - - -
+
+C0-0
+RET NZ
+1 8t-20t
+- - - -
+
+79-8
+LD A,C
+1 4t
+- - - -
+
+CB-0
+PREFIX CB
+1 4t
+- - - -
+
+AC-8
+XOR A,H
+1 4t
+Z 0 0 0
+
+0D-8
+DEC C
+1 4t
+Z 1 H -
+
+4D-8
+LD C,L
+1 4t
+- - - -
+
+66-8
+LD H,(HL)
+1 8t
+- - - -
+
+97-8
+SUB A,A
+1 4t
+Z 1 H C
+
+B8-8
+CP A,B
+1 4t
+Z 1 H C
+
+5E-8
+LD E,(HL)
+1 8t
+- - - -
+
+2F-8
+CPL
+1 4t
+- 1 1 -
+
+B4-8
+OR A,H
+1 4t
+Z 0 0 0
+
+55-8
+LD D,L
+1 4t
+- - - -
+
+E2-8
+LD (FF00+C),A
+1 8t
+- - - -
+
+69-8
+LD L,C
+1 4t
+- - - -
+
+F1-16
+POP AF
+1 12t
+Z N H C
+
+FF-0
+RST 38h
+1 16t
+- - - -
+

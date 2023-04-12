@@ -4,15 +4,15 @@ use std::{fs::File, io::Read};
 
 const HTML_FILE_PATH: &str = "gbops.html";
 
-pub struct OpcodeInfo<'a> {
-    pub opcode: &'a str,
-    pub size: &'a str,
-    pub operator: &'a str,
-    pub operands: &'a str,
-    pub operand_width: &'a str,
-    pub flags: &'a str,
-    pub cycles: &'a str,
-}
+// pub struct OpcodeInfo<'a> {
+//     pub opcode: &'a str,
+//     pub size: &'a str,
+//     pub operator: &'a str,
+//     pub operands: &'a str,
+//     pub operand_width: &'a str,
+//     pub flags: &'a str,
+//     pub cycles: &'a str,
+// }
 
 pub fn scrap_html() -> (HashMap<String, String>, HashMap<String, String>) {
     // open html file in read-only mode
@@ -55,14 +55,24 @@ fn extract_table(table_body: ElementRef) -> HashMap<String, String> {
                 continue;
             }
 
+            // get the hex of the opcode
+            let mut opcode = format!("{:x}{:x}", msb, lsb);
+
+            // get 8 or 16 bit or other
+            let cell_attributes = cell.value().attr("class").unwrap();
+            if cell_attributes.contains("8") {
+                opcode = format!("{opcode}-8");
+            } else if cell_attributes.contains("16") {
+                opcode = format!("{opcode}-16");
+            } else {
+                opcode = format!("{opcode}-0");
+            }
+
             // 2 layers of div tags
             let cell = cell.select(&div_selector).next().unwrap();
             let cell = cell.select(&div_selector).next().unwrap();
 
             let cell_data = cell.inner_html().replace("<br>", "\n");
-
-            // get the hex of the opcode
-            let opcode = format!("{:x}{:x}", msb, lsb);
 
             opcode_data_map.insert(opcode, cell_data);
         }
