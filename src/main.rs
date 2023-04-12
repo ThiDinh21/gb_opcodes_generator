@@ -18,6 +18,7 @@ extern crate pest;
 #[macro_use]
 extern crate pest_derive;
 
+pub mod generate_opcode_functions;
 pub mod html_scraper;
 pub mod pest_parser;
 
@@ -28,14 +29,38 @@ use std::fs::OpenOptions;
 use std::io::Write;
 
 fn main() {
+    // scrap html file and save into 2 maps
     let (non_cb, cb) = scrap_html();
 
-    log_scrap_result(&non_cb, "scrap_non_cb.txt");
-    log_scrap_result(&cb, "scrap_cb.txt");
+    // log the 2 maps into txt file
+    // log_scrap_result(&non_cb, "scrap_non_cb.txt");
+    // log_scrap_result(&cb, "scrap_cb.txt");
 
+    // parse the text in the map and save to json files
+    // log_parsed_result(&non_cb, "opcodes_non_cb.json");
+    // log_parsed_result(&cb, "opcodes_cb.json");
+}
+
+fn log_scrap_result(opcode_map: &HashMap<String, String>, filename: &str) {
+    let mut file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(filename)
+        .unwrap();
+
+    for (opcode, data) in opcode_map.iter() {
+        file.write_all(opcode.to_uppercase().as_bytes()).unwrap();
+        file.write_all(b"\n").unwrap();
+        // replace \u200b characters with white spaces
+        file.write_all(data.replace("​", " ").as_bytes()).unwrap();
+        file.write_all(b"\n\n").unwrap();
+    }
+}
+
+fn log_parsed_result(data_map: &HashMap<String, String>, filename: &str) {
     let mut opcode_json = HashMap::<String, HashMap<&str, String>>::new();
 
-    for (opcode, data) in non_cb {
+    for (opcode, data) in data_map {
         // println!("{data:#?}");
 
         let opcode_and_bits = opcode.split("-").collect::<Vec<&str>>();
@@ -55,24 +80,8 @@ fn main() {
 
     // Save the JSON structure into the other file.
     std::fs::write(
-        "opcodes.json",
+        filename,
         serde_json::to_string_pretty(&opcode_json).unwrap(),
     )
     .unwrap();
-}
-
-fn log_scrap_result(non_cb: &HashMap<String, String>, filename: &str) {
-    let mut file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open(filename)
-        .unwrap();
-
-    for (opcode, data) in non_cb.iter() {
-        file.write_all(opcode.to_uppercase().as_bytes()).unwrap();
-        file.write_all(b"\n").unwrap();
-        // replace \u200b characters with white spaces
-        file.write_all(data.replace("​", " ").as_bytes()).unwrap();
-        file.write_all(b"\n\n").unwrap();
-    }
 }
