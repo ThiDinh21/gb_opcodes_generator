@@ -18,10 +18,11 @@ extern crate pest;
 #[macro_use]
 extern crate pest_derive;
 
-pub mod generate_opcode_functions;
+pub mod generator;
 pub mod html_scraper;
 pub mod pest_parser;
 
+use crate::generator::generate_opcodes;
 use crate::html_scraper::scrap_html;
 use crate::pest_parser::parse_str;
 use std::collections::HashMap;
@@ -39,6 +40,8 @@ fn main() {
     // parse the text in the map and save to json files
     // log_parsed_result(&non_cb, "opcodes_non_cb.json");
     // log_parsed_result(&cb, "opcodes_cb.json");
+
+    generate_opcodes();
 }
 
 fn log_scrap_result(opcode_map: &HashMap<String, String>, filename: &str) {
