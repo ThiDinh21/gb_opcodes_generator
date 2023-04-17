@@ -58,7 +58,7 @@ pub fn parse_str(instruction: String) -> HashMap<&'static str, String> {
                     let flag_value = get_flag_value(inner_pair.as_rule());
 
                     match i {
-                        0 => res.insert("K", flag_value),
+                        0 => res.insert("Z", flag_value),
                         1 => res.insert("N", flag_value),
                         2 => res.insert("H", flag_value),
                         3 => res.insert("C", flag_value),

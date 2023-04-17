@@ -5,7 +5,7 @@
     "N": "0",
     "operands": "0|D",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "operator": "BIT",
     "H": "1",
     "mnemonic": "BIT 0,D",
@@ -14,7 +14,7 @@
   "B7": {
     "cycles": "8",
     "mnemonic": "RES 6,A",
-    "K": "-",
+    "Z": "-",
     "operator": "RES",
     "N": "-",
     "size": "2",
@@ -30,7 +30,7 @@
     "N": "0",
     "size": "2",
     "operator": "RLC",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "16",
     "bits": "8",
     "operands": "(HL)"
@@ -40,7 +40,7 @@
     "size": "2",
     "N": "-",
     "mnemonic": "SET 0,D",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "cycles": "8",
@@ -56,14 +56,14 @@
     "H": "0",
     "operands": "E",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "SLA E"
   },
   "67": {
     "operands": "4|A",
     "cycles": "8",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "BIT 4,A",
     "size": "2",
     "C": "-",
@@ -75,7 +75,7 @@
     "mnemonic": "SRA A",
     "N": "0",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "C": "C",
     "bits": "8",
@@ -84,7 +84,7 @@
     "operands": "A"
   },
   "AA": {
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "C": "-",
     "N": "-",
@@ -101,7 +101,7 @@
     "H": "1",
     "bits": "8",
     "mnemonic": "BIT 3,B",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "cycles": "8",
     "N": "0",
@@ -112,7 +112,7 @@
     "size": "2",
     "operands": "1|(HL)",
     "cycles": "16",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "H": "-",
     "N": "-",
@@ -127,13 +127,13 @@
     "operands": "H",
     "bits": "8",
     "C": "C",
-    "K": "Z",
+    "Z": "Z",
     "operator": "RR",
     "mnemonic": "RR H"
   },
   "1E": {
     "operands": "(HL)",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "C",
     "N": "0",
@@ -152,7 +152,7 @@
     "operator": "RES",
     "size": "2",
     "cycles": "16",
-    "K": "-",
+    "Z": "-",
     "operands": "5|(HL)"
   },
   "C7": {
@@ -163,7 +163,7 @@
     "C": "-",
     "cycles": "8",
     "operands": "0|A",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "operator": "SET"
   },
@@ -176,7 +176,7 @@
     "H": "1",
     "operator": "BIT",
     "mnemonic": "BIT 1,E",
-    "K": "Z",
+    "Z": "Z",
     "size": "2"
   },
   "F0": {
@@ -189,12 +189,12 @@
     "operator": "SET",
     "cycles": "8",
     "N": "-",
-    "K": "-"
+    "Z": "-"
   },
   "F5": {
     "N": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 6,L",
     "operator": "SET",
     "H": "-",
@@ -208,7 +208,7 @@
     "operands": "5|(HL)",
     "C": "-",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "operator": "SET",
     "mnemonic": "SET 5,(HL)",
@@ -221,7 +221,7 @@
     "mnemonic": "RES 0,(HL)",
     "operator": "RES",
     "cycles": "16",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "H": "-",
     "N": "-",
@@ -236,7 +236,7 @@
     "operator": "RRC",
     "H": "0",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "RRC L"
   },
   "91": {
@@ -244,7 +244,7 @@
     "C": "-",
     "bits": "8",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "N": "-",
     "H": "-",
@@ -256,7 +256,7 @@
     "bits": "8",
     "operator": "BIT",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "C": "-",
     "H": "1",
@@ -267,7 +267,7 @@
     "H": "0",
     "cycles": "8",
     "operands": "L",
-    "K": "Z",
+    "Z": "Z",
     "operator": "SLA",
     "C": "C",
     "bits": "8",
@@ -281,7 +281,7 @@
     "operands": "4|E",
     "N": "-",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "cycles": "8",
@@ -291,7 +291,7 @@
     "operator": "SET",
     "bits": "8",
     "operands": "5|B",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "size": "2",
     "mnemonic": "SET 5,B",
@@ -300,7 +300,7 @@
     "H": "-"
   },
   "40": {
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "BIT 0,B",
     "operands": "0|B",
     "size": "2",
@@ -313,7 +313,7 @@
   },
   "0B": {
     "operands": "E",
-    "K": "Z",
+    "Z": "Z",
     "C": "C",
     "bits": "8",
     "mnemonic": "RRC E",
@@ -325,7 +325,7 @@
   },
   "0F": {
     "operands": "A",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "RRC A",
     "operator": "RRC",
     "N": "0",
@@ -345,7 +345,7 @@
     "C": "-",
     "bits": "8",
     "cycles": "8",
-    "K": "Z"
+    "Z": "Z"
   },
   "65": {
     "operator": "BIT",
@@ -357,11 +357,11 @@
     "bits": "8",
     "N": "0",
     "cycles": "8",
-    "K": "Z"
+    "Z": "Z"
   },
   "CA": {
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "bits": "8",
     "cycles": "8",
@@ -380,7 +380,7 @@
     "bits": "8",
     "H": "0",
     "mnemonic": "RRC B",
-    "K": "Z",
+    "Z": "Z",
     "N": "0"
   },
   "01": {
@@ -390,13 +390,13 @@
     "size": "2",
     "operator": "RLC",
     "mnemonic": "RLC C",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "operands": "C",
     "N": "0"
   },
   "15": {
-    "K": "Z",
+    "Z": "Z",
     "operands": "L",
     "N": "0",
     "H": "0",
@@ -410,7 +410,7 @@
   "14": {
     "bits": "8",
     "C": "C",
-    "K": "Z",
+    "Z": "Z",
     "operator": "RL",
     "mnemonic": "RL H",
     "cycles": "8",
@@ -429,7 +429,7 @@
     "size": "2",
     "operands": "3|H",
     "mnemonic": "RES 3,H",
-    "K": "-"
+    "Z": "-"
   },
   "A8": {
     "bits": "8",
@@ -440,7 +440,7 @@
     "operands": "5|B",
     "cycles": "8",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "H": "-"
   },
   "39": {
@@ -448,7 +448,7 @@
     "H": "0",
     "mnemonic": "SRL C",
     "C": "C",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "operator": "SRL",
     "cycles": "8",
@@ -463,7 +463,7 @@
     "C": "C",
     "mnemonic": "SLA B",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "operands": "B",
     "operator": "SLA"
   },
@@ -474,7 +474,7 @@
     "bits": "8",
     "operator": "SET",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "H": "-",
     "C": "-"
@@ -482,7 +482,7 @@
   "EF": {
     "mnemonic": "SET 5,A",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "operator": "SET",
     "size": "2",
@@ -495,7 +495,7 @@
     "C": "-",
     "bits": "8",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "cycles": "16",
     "mnemonic": "RES 4,(HL)",
@@ -504,7 +504,7 @@
     "H": "-"
   },
   "17": {
-    "K": "Z",
+    "Z": "Z",
     "operator": "RL",
     "H": "0",
     "size": "2",
@@ -518,7 +518,7 @@
   "88": {
     "operands": "1|B",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "bits": "8",
     "C": "-",
@@ -535,7 +535,7 @@
     "mnemonic": "SET 7,B",
     "operator": "SET",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "bits": "8"
   },
@@ -549,7 +549,7 @@
     "C": "-",
     "bits": "8",
     "size": "2",
-    "K": "Z"
+    "Z": "Z"
   },
   "CC": {
     "operands": "1|H",
@@ -558,7 +558,7 @@
     "size": "2",
     "mnemonic": "SET 1,H",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "H": "-",
     "N": "-"
@@ -569,7 +569,7 @@
     "N": "0",
     "C": "0",
     "bits": "8",
-    "K": "Z",
+    "Z": "Z",
     "operator": "SWAP",
     "operands": "E",
     "size": "2",
@@ -577,7 +577,7 @@
   },
   "2E": {
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "operands": "(HL)",
     "operator": "SRA",
     "H": "0",
@@ -590,7 +590,7 @@
   "0C": {
     "size": "2",
     "operator": "RRC",
-    "K": "Z",
+    "Z": "Z",
     "operands": "H",
     "N": "0",
     "H": "0",
@@ -607,7 +607,7 @@
     "cycles": "8",
     "operator": "BIT",
     "operands": "5|H",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "size": "2"
   },
@@ -615,7 +615,7 @@
     "C": "-",
     "operands": "3|D",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "size": "2",
     "mnemonic": "SET 3,D",
@@ -629,7 +629,7 @@
     "size": "2",
     "operands": "3|(HL)",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "C": "-",
     "bits": "8",
@@ -643,12 +643,12 @@
     "bits": "8",
     "operands": "4|C",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "mnemonic": "RES 4,C"
   },
   "5C": {
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "mnemonic": "BIT 3,H",
     "operands": "3|H",
@@ -667,7 +667,7 @@
     "cycles": "8",
     "size": "2",
     "operands": "3|D",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "C": "-"
   },
@@ -678,7 +678,7 @@
     "C": "C",
     "operator": "RRC",
     "mnemonic": "RRC D",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "bits": "8",
     "operands": "D"
@@ -688,7 +688,7 @@
     "operands": "6|A",
     "N": "-",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "cycles": "8",
     "H": "-",
@@ -699,7 +699,7 @@
     "H": "0",
     "bits": "8",
     "mnemonic": "SWAP D",
-    "K": "Z",
+    "Z": "Z",
     "C": "0",
     "cycles": "8",
     "operator": "SWAP",
@@ -715,12 +715,12 @@
     "size": "2",
     "bits": "8",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "mnemonic": "BIT 4,D"
   },
   "BD": {
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "size": "2",
     "N": "-",
@@ -740,7 +740,7 @@
     "C": "-",
     "bits": "8",
     "operands": "3|L",
-    "K": "-",
+    "Z": "-",
     "N": "-"
   },
   "21": {
@@ -751,7 +751,7 @@
     "operator": "SLA",
     "cycles": "8",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "C": "C"
   },
@@ -764,7 +764,7 @@
     "mnemonic": "RES 6,C",
     "size": "2",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "cycles": "8"
   },
   "00": {
@@ -772,7 +772,7 @@
     "mnemonic": "RLC B",
     "size": "2",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "operands": "B",
     "H": "0",
     "operator": "RLC",
@@ -786,7 +786,7 @@
     "H": "1",
     "operator": "BIT",
     "mnemonic": "BIT 5,B",
-    "K": "Z",
+    "Z": "Z",
     "bits": "8",
     "size": "2",
     "operands": "5|B"
@@ -798,13 +798,13 @@
     "bits": "8",
     "mnemonic": "RES 3,C",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "N": "-"
   },
   "70": {
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "H": "1",
     "mnemonic": "BIT 6,B",
@@ -818,7 +818,7 @@
   "19": {
     "H": "0",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "C": "C",
     "bits": "8",
     "operator": "RR",
@@ -829,7 +829,7 @@
   },
   "41": {
     "C": "-",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "operator": "BIT",
     "mnemonic": "BIT 0,C",
@@ -844,7 +844,7 @@
     "operands": "2|B",
     "N": "0",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "H": "1",
     "mnemonic": "BIT 2,B",
@@ -858,7 +858,7 @@
     "H": "1",
     "C": "-",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "N": "0",
     "bits": "8"
@@ -867,7 +867,7 @@
     "C": "-",
     "operands": "3|E",
     "mnemonic": "SET 3,E",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "bits": "8",
     "size": "2",
@@ -884,12 +884,12 @@
     "bits": "8",
     "mnemonic": "RL (HL)",
     "operands": "(HL)",
-    "K": "Z",
+    "Z": "Z",
     "size": "2"
   },
   "C3": {
     "mnemonic": "SET 0,E",
-    "K": "-",
+    "Z": "-",
     "operands": "0|E",
     "cycles": "8",
     "N": "-",
@@ -900,7 +900,7 @@
     "H": "-"
   },
   "ED": {
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "H": "-",
     "mnemonic": "SET 5,L",
@@ -919,7 +919,7 @@
     "H": "-",
     "operands": "6|(HL)",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "size": "2"
   },
@@ -931,7 +931,7 @@
     "operator": "BIT",
     "operands": "2|E",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "mnemonic": "BIT 2,E"
   },
@@ -939,7 +939,7 @@
     "size": "2",
     "mnemonic": "SRL D",
     "operator": "SRL",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "H": "0",
     "operands": "D",
@@ -948,7 +948,7 @@
     "bits": "8"
   },
   "31": {
-    "K": "Z",
+    "Z": "Z",
     "bits": "8",
     "cycles": "8",
     "size": "2",
@@ -962,7 +962,7 @@
   "4E": {
     "cycles": "12",
     "mnemonic": "BIT 1,(HL)",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "operands": "1|(HL)",
     "operator": "BIT",
@@ -978,7 +978,7 @@
     "size": "2",
     "operands": "3|B",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "C": "-",
     "H": "-"
@@ -992,12 +992,12 @@
     "size": "2",
     "mnemonic": "SET 7,A",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "cycles": "8"
   },
   "D4": {
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "N": "-",
     "cycles": "8",
@@ -1017,10 +1017,10 @@
     "operator": "BIT",
     "H": "1",
     "C": "-",
-    "K": "Z"
+    "Z": "Z"
   },
   "7E": {
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "cycles": "12",
     "operands": "7|(HL)",
@@ -1039,7 +1039,7 @@
     "mnemonic": "SET 7,L",
     "operands": "7|L",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "cycles": "8"
   },
@@ -1053,12 +1053,12 @@
     "size": "2",
     "cycles": "8",
     "N": "-",
-    "K": "-"
+    "Z": "-"
   },
   "DC": {
     "operands": "3|H",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 3,H",
     "cycles": "8",
     "size": "2",
@@ -1075,7 +1075,7 @@
     "C": "-",
     "size": "2",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "N": "-"
   },
@@ -1089,13 +1089,13 @@
     "H": "1",
     "cycles": "8",
     "size": "2",
-    "K": "Z"
+    "Z": "Z"
   },
   "7A": {
     "C": "-",
     "bits": "8",
     "operands": "7|D",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "operator": "BIT",
     "N": "0",
@@ -1110,7 +1110,7 @@
     "operands": "4|C",
     "C": "-",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "operator": "SET",
     "size": "2",
     "bits": "8"
@@ -1119,7 +1119,7 @@
     "mnemonic": "BIT 6,E",
     "operands": "6|E",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "operator": "BIT",
     "H": "1",
     "C": "-",
@@ -1135,7 +1135,7 @@
     "size": "2",
     "cycles": "8",
     "operator": "RL",
-    "K": "Z",
+    "Z": "Z",
     "bits": "8",
     "C": "C"
   },
@@ -1145,7 +1145,7 @@
     "bits": "8",
     "mnemonic": "BIT 2,D",
     "operator": "BIT",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "size": "2",
     "cycles": "8",
@@ -1157,7 +1157,7 @@
     "mnemonic": "RES 3,D",
     "bits": "8",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "operands": "3|D",
     "C": "-",
@@ -1168,7 +1168,7 @@
     "cycles": "8",
     "N": "0",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "bits": "8",
     "C": "C",
@@ -1182,7 +1182,7 @@
     "bits": "8",
     "H": "0",
     "mnemonic": "RR E",
-    "K": "Z",
+    "Z": "Z",
     "C": "C",
     "cycles": "8",
     "N": "0"
@@ -1193,7 +1193,7 @@
     "operands": "0|H",
     "N": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "bits": "8",
     "C": "-",
@@ -1203,7 +1203,7 @@
     "mnemonic": "BIT 7,H",
     "operands": "7|H",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "C": "-",
     "operator": "BIT",
@@ -1215,7 +1215,7 @@
     "bits": "8",
     "mnemonic": "BIT 7,A",
     "C": "-",
-    "K": "Z",
+    "Z": "Z",
     "operands": "7|A",
     "H": "1",
     "size": "2",
@@ -1229,7 +1229,7 @@
     "size": "2",
     "operator": "RR",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "operands": "L",
     "mnemonic": "RR L",
     "C": "C",
@@ -1238,7 +1238,7 @@
   "E5": {
     "H": "-",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "operator": "SET",
     "bits": "8",
@@ -1252,7 +1252,7 @@
     "C": "-",
     "cycles": "8",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 7,C",
     "H": "-",
     "operator": "SET",
@@ -1264,7 +1264,7 @@
     "H": "1",
     "operator": "BIT",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "C": "-",
     "bits": "8",
@@ -1273,7 +1273,7 @@
   },
   "B4": {
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "operands": "6|H",
     "N": "-",
     "cycles": "8",
@@ -1288,7 +1288,7 @@
     "C": "-",
     "bits": "8",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "operands": "1|D",
     "mnemonic": "BIT 1,D",
     "operator": "BIT",
@@ -1303,7 +1303,7 @@
     "mnemonic": "RR B",
     "bits": "8",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "size": "2"
   },
@@ -1314,7 +1314,7 @@
     "H": "-",
     "C": "-",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "operands": "5|C",
     "N": "-",
     "cycles": "8"
@@ -1324,7 +1324,7 @@
     "size": "2",
     "H": "-",
     "mnemonic": "RES 3,L",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "bits": "8",
     "operator": "RES",
@@ -1340,7 +1340,7 @@
     "size": "2",
     "H": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "bits": "8"
   },
   "80": {
@@ -1349,7 +1349,7 @@
     "operator": "RES",
     "operands": "0|B",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "mnemonic": "RES 0,B",
     "size": "2",
@@ -1360,7 +1360,7 @@
     "N": "0",
     "C": "-",
     "H": "1",
-    "K": "Z",
+    "Z": "Z",
     "operands": "5|(HL)",
     "size": "2",
     "bits": "8",
@@ -1376,12 +1376,12 @@
     "size": "2",
     "operands": "5|E",
     "bits": "8",
-    "K": "Z",
+    "Z": "Z",
     "C": "-"
   },
   "76": {
     "operands": "6|(HL)",
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "bits": "8",
     "N": "0",
@@ -1400,14 +1400,14 @@
     "cycles": "8",
     "operator": "RL",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "operands": "C"
   },
   "2B": {
     "H": "0",
     "N": "0",
     "operator": "SRA",
-    "K": "Z",
+    "Z": "Z",
     "operands": "E",
     "size": "2",
     "C": "C",
@@ -1422,14 +1422,14 @@
     "operands": "2|A",
     "mnemonic": "BIT 2,A",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "size": "2",
     "H": "1"
   },
   "97": {
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "C": "-",
     "N": "-",
@@ -1448,7 +1448,7 @@
     "size": "2",
     "bits": "8",
     "operator": "SRL",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "SRL E"
   },
   "BF": {
@@ -1460,7 +1460,7 @@
     "operands": "7|A",
     "operator": "RES",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "bits": "8"
   },
   "72": {
@@ -1468,7 +1468,7 @@
     "cycles": "8",
     "N": "0",
     "bits": "8",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "operands": "6|D",
     "H": "1",
@@ -1477,7 +1477,7 @@
   },
   "96": {
     "operands": "2|(HL)",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "N": "-",
     "H": "-",
@@ -1496,12 +1496,12 @@
     "C": "-",
     "operator": "BIT",
     "operands": "2|C",
-    "K": "Z",
+    "Z": "Z",
     "bits": "8"
   },
   "03": {
     "operands": "E",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "size": "2",
     "cycles": "8",
@@ -1520,7 +1520,7 @@
     "bits": "8",
     "size": "2",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8"
   },
   "7B": {
@@ -1530,7 +1530,7 @@
     "H": "1",
     "operands": "7|E",
     "operator": "BIT",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "mnemonic": "BIT 7,E",
     "N": "0"
@@ -1538,7 +1538,7 @@
   "D0": {
     "N": "-",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 2,B",
     "size": "2",
     "C": "-",
@@ -1556,7 +1556,7 @@
     "operator": "RES",
     "cycles": "8",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "C": "-"
   },
   "8C": {
@@ -1568,11 +1568,11 @@
     "size": "2",
     "mnemonic": "RES 1,H",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "operands": "1|H"
   },
   "3C": {
-    "K": "Z",
+    "Z": "Z",
     "C": "C",
     "bits": "8",
     "size": "2",
@@ -1591,7 +1591,7 @@
     "bits": "8",
     "operands": "1|A",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "operator": "RES"
   },
@@ -1599,7 +1599,7 @@
     "operands": "3|(HL)",
     "bits": "8",
     "mnemonic": "BIT 3,(HL)",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "C": "-",
     "operator": "BIT",
@@ -1613,7 +1613,7 @@
     "cycles": "16",
     "bits": "8",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "N": "-",
     "H": "-",
@@ -1627,7 +1627,7 @@
     "N": "0",
     "bits": "8",
     "mnemonic": "SWAP L",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "0"
   },
@@ -1636,7 +1636,7 @@
     "operands": "1|A",
     "bits": "8",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "size": "2",
     "mnemonic": "BIT 1,A",
@@ -1648,7 +1648,7 @@
     "size": "2",
     "cycles": "8",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "operator": "RRC",
     "C": "C",
@@ -1663,7 +1663,7 @@
     "C": "C",
     "H": "0",
     "bits": "8",
-    "K": "Z",
+    "Z": "Z",
     "operands": "H",
     "N": "0"
   },
@@ -1676,14 +1676,14 @@
     "C": "-",
     "N": "-",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "H": "-"
   },
   "BB": {
     "N": "-",
     "cycles": "8",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 7,E",
     "operator": "RES",
     "C": "-",
@@ -1695,7 +1695,7 @@
     "operator": "RES",
     "C": "-",
     "operands": "6|(HL)",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "bits": "8",
     "mnemonic": "RES 6,(HL)",
@@ -1706,7 +1706,7 @@
   "CD": {
     "operands": "1|L",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "bits": "8",
     "size": "2",
@@ -1724,7 +1724,7 @@
     "cycles": "8",
     "mnemonic": "RLC H",
     "operands": "H",
-    "K": "Z",
+    "Z": "Z",
     "N": "0"
   },
   "44": {
@@ -1736,11 +1736,11 @@
     "operands": "0|H",
     "N": "0",
     "mnemonic": "BIT 0,H",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8"
   },
   "13": {
-    "K": "Z",
+    "Z": "Z",
     "operator": "RL",
     "N": "0",
     "cycles": "8",
@@ -1759,12 +1759,12 @@
     "N": "0",
     "operator": "BIT",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "BIT 3,E",
     "H": "1"
   },
   "6A": {
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "N": "0",
     "bits": "8",
@@ -1783,7 +1783,7 @@
     "size": "2",
     "operator": "SET",
     "operands": "3|(HL)",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "H": "-"
   },
@@ -1794,13 +1794,13 @@
     "bits": "8",
     "operands": "2|A",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 2,A",
     "size": "2",
     "N": "-"
   },
   "C9": {
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "operands": "1|C",
     "N": "-",
@@ -1817,7 +1817,7 @@
     "bits": "8",
     "mnemonic": "BIT 3,C",
     "operands": "3|C",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "N": "0",
     "operator": "BIT",
@@ -1827,7 +1827,7 @@
     "cycles": "8",
     "operator": "RES",
     "mnemonic": "RES 2,D",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "N": "-",
     "C": "-",
@@ -1845,11 +1845,11 @@
     "bits": "8",
     "operator": "RR",
     "N": "0",
-    "K": "Z"
+    "Z": "Z"
   },
   "FA": {
     "mnemonic": "SET 7,D",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "bits": "8",
     "cycles": "8",
@@ -1867,7 +1867,7 @@
     "operands": "1|C",
     "C": "-",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "mnemonic": "RES 1,C"
   },
@@ -1878,7 +1878,7 @@
     "N": "0",
     "operator": "BIT",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "mnemonic": "BIT 4,C",
     "H": "1"
@@ -1891,12 +1891,12 @@
     "bits": "8",
     "operands": "3|C",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "mnemonic": "SET 3,C"
   },
   "7D": {
-    "K": "Z",
+    "Z": "Z",
     "H": "1",
     "size": "2",
     "operands": "7|L",
@@ -1912,7 +1912,7 @@
     "operator": "RLC",
     "mnemonic": "RLC L",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "C": "C",
     "bits": "8",
     "operands": "L",
@@ -1929,7 +1929,7 @@
     "C": "-",
     "H": "-",
     "cycles": "8",
-    "K": "-"
+    "Z": "-"
   },
   "A0": {
     "operator": "RES",
@@ -1937,7 +1937,7 @@
     "mnemonic": "RES 4,B",
     "N": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "operands": "4|B",
     "C": "-",
@@ -1949,7 +1949,7 @@
     "cycles": "8",
     "N": "0",
     "C": "C",
-    "K": "Z",
+    "Z": "Z",
     "operator": "SRL",
     "bits": "8",
     "mnemonic": "SRL L",
@@ -1957,7 +1957,7 @@
   },
   "93": {
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "N": "-",
@@ -1974,7 +1974,7 @@
     "operator": "SET",
     "mnemonic": "SET 1,A",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "cycles": "8",
     "operands": "1|A"
@@ -1983,7 +1983,7 @@
     "bits": "8",
     "size": "2",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "SWAP A",
     "H": "0",
     "operands": "A",
@@ -2000,7 +2000,7 @@
     "N": "-",
     "operands": "7|D",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "operator": "RES"
   },
   "6D": {
@@ -2013,7 +2013,7 @@
     "operator": "BIT",
     "bits": "8",
     "C": "-",
-    "K": "Z"
+    "Z": "Z"
   },
   "F1": {
     "mnemonic": "SET 6,C",
@@ -2021,7 +2021,7 @@
     "C": "-",
     "H": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "N": "-",
     "operands": "6|C",
@@ -2037,7 +2037,7 @@
     "C": "-",
     "cycles": "8",
     "size": "2",
-    "K": "Z"
+    "Z": "Z"
   },
   "54": {
     "operands": "2|H",
@@ -2048,7 +2048,7 @@
     "cycles": "8",
     "mnemonic": "BIT 2,H",
     "bits": "8",
-    "K": "Z",
+    "Z": "Z",
     "size": "2"
   },
   "E7": {
@@ -2061,7 +2061,7 @@
     "operator": "SET",
     "operands": "4|A",
     "cycles": "8",
-    "K": "-"
+    "Z": "-"
   },
   "84": {
     "N": "-",
@@ -2070,7 +2070,7 @@
     "H": "-",
     "cycles": "8",
     "operands": "0|H",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "mnemonic": "RES 0,H",
     "C": "-"
@@ -2082,7 +2082,7 @@
     "H": "1",
     "cycles": "8",
     "operands": "1|C",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "operator": "BIT",
     "C": "-"
@@ -2092,7 +2092,7 @@
     "bits": "8",
     "operands": "7|E",
     "mnemonic": "SET 7,E",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "cycles": "8",
     "operator": "SET",
@@ -2104,7 +2104,7 @@
     "N": "-",
     "H": "-",
     "operator": "RES",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 0,L",
     "operands": "0|L",
     "cycles": "8",
@@ -2121,7 +2121,7 @@
     "cycles": "8",
     "size": "2",
     "operator": "RES",
-    "K": "-"
+    "Z": "-"
   },
   "F4": {
     "size": "2",
@@ -2133,14 +2133,14 @@
     "C": "-",
     "bits": "8",
     "operands": "6|H",
-    "K": "-"
+    "Z": "-"
   },
   "5D": {
     "H": "1",
     "bits": "8",
     "operator": "BIT",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "cycles": "8",
     "C": "-",
@@ -2151,7 +2151,7 @@
     "operator": "BIT",
     "size": "2",
     "C": "-",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "H": "1",
     "operands": "6|C",
@@ -2162,7 +2162,7 @@
   "D3": {
     "cycles": "8",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "mnemonic": "SET 2,E",
@@ -2180,11 +2180,11 @@
     "bits": "8",
     "cycles": "8",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "N": "-"
   },
   "B0": {
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "operands": "6|B",
     "size": "2",
@@ -2202,7 +2202,7 @@
     "C": "-",
     "N": "-",
     "operands": "4|E",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "cycles": "8",
     "mnemonic": "SET 4,E"
@@ -2214,7 +2214,7 @@
     "H": "1",
     "operator": "BIT",
     "mnemonic": "BIT 3,A",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "N": "0",
     "C": "-"
@@ -2226,7 +2226,7 @@
     "H": "0",
     "bits": "8",
     "N": "0",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "SRL (HL)",
     "cycles": "16",
     "operator": "SRL"
@@ -2236,7 +2236,7 @@
     "cycles": "8",
     "N": "-",
     "operands": "5|L",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "H": "-",
     "C": "-",
@@ -2246,7 +2246,7 @@
   "E2": {
     "operands": "4|D",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "size": "2",
     "bits": "8",
@@ -2265,11 +2265,11 @@
     "H": "-",
     "size": "2",
     "bits": "8",
-    "K": "-"
+    "Z": "-"
   },
   "8A": {
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "H": "-",
     "bits": "8",
@@ -2286,7 +2286,7 @@
     "size": "2",
     "C": "-",
     "operands": "0|D",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "operator": "RES",
     "bits": "8"
@@ -2300,7 +2300,7 @@
     "bits": "8",
     "N": "0",
     "C": "C",
-    "K": "Z",
+    "Z": "Z",
     "size": "2"
   },
   "4D": {
@@ -2309,7 +2309,7 @@
     "size": "2",
     "mnemonic": "BIT 1,L",
     "operator": "BIT",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "operands": "1|L",
     "H": "1",
@@ -2321,7 +2321,7 @@
     "H": "-",
     "C": "-",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "N": "-",
     "operands": "7|C",
@@ -2334,7 +2334,7 @@
     "H": "-",
     "operator": "RES",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "operands": "0|E",
     "N": "-",
     "bits": "8"
@@ -2347,12 +2347,12 @@
     "bits": "8",
     "operator": "RL",
     "mnemonic": "RL B",
-    "K": "Z",
+    "Z": "Z",
     "operands": "B",
     "C": "C"
   },
   "BC": {
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "N": "-",
     "bits": "8",
@@ -2365,7 +2365,7 @@
   },
   "E4": {
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "H": "-",
     "operands": "4|H",
@@ -2383,7 +2383,7 @@
     "operator": "RLC",
     "mnemonic": "RLC D",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "bits": "8"
   },
@@ -2394,14 +2394,14 @@
     "operator": "RES",
     "size": "2",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "H": "-",
     "C": "-",
     "bits": "8"
   },
   "D6": {
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "mnemonic": "SET 2,(HL)",
     "cycles": "16",
@@ -2418,7 +2418,7 @@
     "H": "-",
     "bits": "8",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 0,C",
     "operands": "0|C",
     "operator": "RES"
@@ -2426,7 +2426,7 @@
   "27": {
     "H": "0",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "mnemonic": "SLA A",
     "bits": "8",
@@ -2438,7 +2438,7 @@
   "B2": {
     "H": "-",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "bits": "8",
     "mnemonic": "RES 6,D",
@@ -2449,7 +2449,7 @@
   },
   "F2": {
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "cycles": "8",
     "operator": "SET",
@@ -2463,7 +2463,7 @@
     "H": "-",
     "bits": "8",
     "operands": "2|C",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "operator": "SET",
     "size": "2",
@@ -2479,7 +2479,7 @@
     "C": "-",
     "N": "0",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "operands": "6|L"
   },
@@ -2491,7 +2491,7 @@
     "bits": "8",
     "H": "-",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 1,L",
     "operands": "1|L"
   },
@@ -2504,7 +2504,7 @@
     "operator": "RES",
     "cycles": "8",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "operands": "6|E"
   },
   "94": {
@@ -2517,7 +2517,7 @@
     "N": "-",
     "cycles": "8",
     "C": "-",
-    "K": "-"
+    "Z": "-"
   },
   "6F": {
     "size": "2",
@@ -2525,7 +2525,7 @@
     "operands": "5|A",
     "N": "0",
     "C": "-",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "BIT 5,A",
     "bits": "8",
     "cycles": "8",
@@ -2538,7 +2538,7 @@
     "size": "2",
     "H": "-",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "operator": "SET",
     "cycles": "16",
     "mnemonic": "SET 0,(HL)"
@@ -2546,7 +2546,7 @@
   "30": {
     "operands": "B",
     "size": "2",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "0",
     "bits": "8",
@@ -2560,7 +2560,7 @@
     "operands": "2|B",
     "bits": "8",
     "mnemonic": "RES 2,B",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "N": "-",
     "H": "-",
@@ -2572,7 +2572,7 @@
     "mnemonic": "RES 5,H",
     "cycles": "8",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "operator": "RES",
     "size": "2",
     "bits": "8",
@@ -2586,7 +2586,7 @@
     "N": "-",
     "bits": "8",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "operator": "RES",
     "mnemonic": "RES 2,L",
     "size": "2"
@@ -2597,7 +2597,7 @@
     "operands": "5|C",
     "bits": "8",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "size": "2",
     "mnemonic": "BIT 5,C",
@@ -2605,7 +2605,7 @@
   },
   "26": {
     "operands": "(HL)",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "C",
     "bits": "8",
@@ -2621,7 +2621,7 @@
     "H": "-",
     "C": "-",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "operator": "RES",
     "operands": "4|H",
@@ -2630,7 +2630,7 @@
   "43": {
     "N": "0",
     "mnemonic": "BIT 0,E",
-    "K": "Z",
+    "Z": "Z",
     "C": "-",
     "cycles": "8",
     "operator": "BIT",
@@ -2642,7 +2642,7 @@
   "AF": {
     "bits": "8",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "mnemonic": "RES 5,A",
     "size": "2",
@@ -2656,7 +2656,7 @@
     "operands": "2|L",
     "cycles": "8",
     "mnemonic": "BIT 2,L",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "operator": "BIT",
     "bits": "8",
@@ -2669,7 +2669,7 @@
     "bits": "8",
     "mnemonic": "SET 7,H",
     "operands": "7|H",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "H": "-",
     "operator": "SET",
@@ -2683,7 +2683,7 @@
     "size": "2",
     "operator": "RES",
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 4,D",
     "H": "-"
   },
@@ -2694,7 +2694,7 @@
     "size": "2",
     "mnemonic": "BIT 1,H",
     "operator": "BIT",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "H": "1",
     "bits": "8"
@@ -2708,12 +2708,12 @@
     "bits": "8",
     "mnemonic": "BIT 4,H",
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "N": "0"
   },
   "EA": {
     "mnemonic": "SET 5,D",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "operands": "5|D",
     "C": "-",
@@ -2724,7 +2724,7 @@
     "bits": "8"
   },
   "46": {
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "N": "0",
     "cycles": "12",
@@ -2745,7 +2745,7 @@
     "mnemonic": "SRA B",
     "cycles": "8",
     "size": "2",
-    "K": "Z"
+    "Z": "Z"
   },
   "CB": {
     "bits": "8",
@@ -2753,7 +2753,7 @@
     "operands": "1|E",
     "cycles": "8",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "mnemonic": "SET 1,E",
     "C": "-",
@@ -2761,7 +2761,7 @@
   },
   "38": {
     "operands": "B",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "H": "0",
     "mnemonic": "SRL B",
@@ -2776,7 +2776,7 @@
     "operands": "C",
     "cycles": "8",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "mnemonic": "SRA C",
     "C": "C",
     "bits": "8",
@@ -2788,7 +2788,7 @@
     "mnemonic": "RES 6,L",
     "operator": "RES",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "bits": "8",
     "cycles": "8",
     "operands": "6|L",
@@ -2801,7 +2801,7 @@
     "N": "-",
     "size": "2",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "mnemonic": "SET 4,B",
     "bits": "8",
@@ -2811,7 +2811,7 @@
     "operands": "3|B",
     "mnemonic": "RES 3,B",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "N": "-",
     "size": "2",
     "H": "-",
@@ -2826,7 +2826,7 @@
     "mnemonic": "RRC (HL)",
     "cycles": "16",
     "operator": "RRC",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "H": "0",
     "C": "C"
@@ -2841,12 +2841,12 @@
     "bits": "8",
     "operands": "1|(HL)",
     "size": "2",
-    "K": "-"
+    "Z": "-"
   },
   "C5": {
     "cycles": "8",
     "size": "2",
-    "K": "-",
+    "Z": "-",
     "operator": "SET",
     "N": "-",
     "C": "-",
@@ -2864,7 +2864,7 @@
     "operands": "3|A",
     "cycles": "8",
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "size": "2"
   },
   "87": {
@@ -2874,7 +2874,7 @@
     "operands": "0|A",
     "C": "-",
     "bits": "8",
-    "K": "-",
+    "Z": "-",
     "operator": "RES",
     "N": "-",
     "cycles": "8"
@@ -2882,7 +2882,7 @@
   "1F": {
     "H": "0",
     "operands": "A",
-    "K": "Z",
+    "Z": "Z",
     "operator": "RR",
     "cycles": "8",
     "size": "2",
@@ -2897,7 +2897,7 @@
     "H": "0",
     "size": "2",
     "operator": "SRA",
-    "K": "Z",
+    "Z": "Z",
     "N": "0",
     "mnemonic": "SRA H",
     "C": "C",
@@ -2909,7 +2909,7 @@
     "C": "C",
     "N": "0",
     "mnemonic": "SRA D",
-    "K": "Z",
+    "Z": "Z",
     "size": "2",
     "H": "0",
     "bits": "8",
@@ -2924,12 +2924,12 @@
     "operands": "(HL)",
     "C": "0",
     "H": "0",
-    "K": "Z",
+    "Z": "Z",
     "bits": "8"
   },
   "8B": {
     "C": "-",
-    "K": "-",
+    "Z": "-",
     "cycles": "8",
     "bits": "8",
     "operator": "RES",
@@ -2942,7 +2942,7 @@
   "A5": {
     "operands": "4|L",
     "N": "-",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "RES 4,L",
     "size": "2",
     "cycles": "8",
@@ -2957,14 +2957,14 @@
     "C": "-",
     "operands": "5|H",
     "cycles": "8",
-    "K": "-",
+    "Z": "-",
     "mnemonic": "SET 5,H",
     "bits": "8",
     "size": "2",
     "N": "-"
   },
   "66": {
-    "K": "Z",
+    "Z": "Z",
     "operands": "4|(HL)",
     "H": "1",
     "mnemonic": "BIT 4,(HL)",
@@ -2976,7 +2976,7 @@
     "size": "2"
   },
   "48": {
-    "K": "Z",
+    "Z": "Z",
     "operands": "1|B",
     "cycles": "8",
     "mnemonic": "BIT 1,B",
@@ -2989,7 +2989,7 @@
   },
   "C1": {
     "H": "-",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "cycles": "8",
     "operands": "0|C",
@@ -3003,7 +3003,7 @@
     "mnemonic": "SRA L",
     "operands": "L",
     "operator": "SRA",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "C",
     "bits": "8",
@@ -3018,7 +3018,7 @@
     "N": "0",
     "H": "1",
     "operands": "4|B",
-    "K": "Z",
+    "Z": "Z",
     "cycles": "8",
     "mnemonic": "BIT 4,B",
     "bits": "8"
@@ -3027,7 +3027,7 @@
     "size": "2",
     "N": "-",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "cycles": "16",
     "mnemonic": "SET 7,(HL)",
     "H": "-",
@@ -3042,7 +3042,7 @@
     "mnemonic": "SET 6,E",
     "cycles": "8",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "C": "-",
     "size": "2",
     "H": "-"
@@ -3050,7 +3050,7 @@
   "D2": {
     "H": "-",
     "operator": "SET",
-    "K": "-",
+    "Z": "-",
     "size": "2",
     "C": "-",
     "cycles": "8",
@@ -3061,7 +3061,7 @@
   },
   "34": {
     "cycles": "8",
-    "K": "Z",
+    "Z": "Z",
     "H": "0",
     "C": "0",
     "size": "2",
