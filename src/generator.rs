@@ -14,7 +14,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     let mut tera = Tera::default();
     let mut context = Context::new();
 
-    tera.add_template_file("templates/cpu.rs", Some("cpu.rs"))?;
+    tera.add_template_file("templates/opcodes.rs", Some("cpu.rs"))?;
 
     tera.register_filter("set_flag", set_flag);
     // tera.register_filter("getter", getter);
