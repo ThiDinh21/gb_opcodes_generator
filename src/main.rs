@@ -22,6 +22,7 @@ extern crate tera;
 
 pub mod generator;
 pub mod html_scraper;
+pub mod opcode_data;
 pub mod pest_parser;
 
 use crate::generator::generate_opcodes;

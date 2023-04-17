@@ -30,8 +30,6 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     let contents: NestedMap = serde_json::from_str(&contents).unwrap();
     let contents_cb: NestedMap = serde_json::from_str(&contents_cb).unwrap();
 
-    // let contents: HashMap<String, String> = serde_json::from_value(json).unwrap();
-    // let contents_cb: HashMap<String, String> = serde_json::from_value(json_cb).unwrap();
     let mut merged_contents = NestedMap::new();
 
     for (k, v) in contents {
@@ -46,7 +44,9 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
 
     // render the template
     context.insert("opcodes", &merged_contents);
-    tera.render("cpu.rs", &context)?;
+    let rendered = tera.render("cpu.rs", &context)?;
+
+    println!("{rendered}");
 
     Ok(())
 }
