@@ -191,6 +191,7 @@ dependencies = [
 name = "gb_opcode_gen"
 version = "0.1.0"
 dependencies = [
+ "lazy_static",
  "pest",
  "pest_derive",
  "scraper",
