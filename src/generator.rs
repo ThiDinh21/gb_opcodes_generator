@@ -17,7 +17,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     tera.add_template_file("templates/opcodes.rs", Some("cpu.rs"))?;
 
     tera.register_filter("set_flag", set_flag);
-    // tera.register_filter("getter", getter);
+    tera.register_filter("getter", getter);
     // tera.register_filter("setter", setter);
 
     // open json files and convert them to HashMap<String, String>
@@ -90,9 +90,44 @@ fn set_flag(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> 
 }
 
 fn getter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
-    todo!()
+    let operand = try_get_value!("arg", "value", String, value);
+    let bits = try_get_value!("arg", "value", usize, map.get("bits").unwrap());
+    generate_getter(operand, bits)
 }
 
 fn setter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
+    todo!()
+}
+
+fn generate_getter(operand: String, bits: usize) -> tera::Result<Value> {
+    if is_numeric(&operand) {
+        todo!()
+    } else if operand.ends_with("h") {
+        todo!()
+    } else {
+        let mut operand = operand.as_str();
+        let is_addr = operand.contains("(");
+        if is_addr {
+            operand = &operand[1..operand.len() - 1];
+        }
+
+        match operand {
+            "u8" | "u16" => todo!(),
+            "SP" => todo!(),
+            "SP+i8" => todo!(),
+            "FF00+C" => todo!(),
+            "FF00+u8" => todo!(),
+            "HL+" => todo!(),
+            "HL-" => todo!(),
+            "NZ" => todo!(),
+            "NC" => todo!(),
+            "Z" => todo!(),
+            "C" => todo!(),
+            _ => todo!(),
+        }
+    }
+}
+
+fn generate_setter(value: String, bits: usize) -> tera::Result<Value> {
     todo!()
 }
