@@ -1,10 +1,12 @@
 use std::collections::HashMap;
 
+#[derive(Serialize, Deserialize)]
 pub enum Cycles {
     One(usize),
     Two(usize, usize),
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct Opcode {
     pub code: String,
     pub mnemonic: String,

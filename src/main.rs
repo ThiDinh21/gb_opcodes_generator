@@ -19,6 +19,8 @@ extern crate pest;
 extern crate pest_derive;
 #[macro_use]
 extern crate tera;
+#[macro_use]
+extern crate serde_derive;
 
 pub mod generator;
 pub mod html_scraper;

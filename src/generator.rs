@@ -5,6 +5,8 @@ use std::path::Path;
 use std::{collections::HashMap, io::Read};
 use tera::{to_value, Context, Filter, Tera, Value};
 
+use crate::opcode_data::Opcode;
+
 type NestedMap = HashMap<String, HashMap<String, String>>;
 
 pub fn generate_opcodes() -> Result<(), tera::Error> {
@@ -30,16 +32,16 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     let contents: NestedMap = serde_json::from_str(&contents).unwrap();
     let contents_cb: NestedMap = serde_json::from_str(&contents_cb).unwrap();
 
-    let mut merged_contents = NestedMap::new();
+    let mut merged_contents = Vec::<Opcode>::new();
 
     for (k, v) in contents {
-        let new_key = format!("00{k}");
-        merged_contents.insert(new_key, v);
+        let opcode = Opcode::new(k, v, false);
+        merged_contents.push(opcode);
     }
 
     for (k, v) in contents_cb {
-        let new_key = format!("cb{k}");
-        merged_contents.insert(new_key, v);
+        let opcode = Opcode::new(k, v, true);
+        merged_contents.push(opcode);
     }
 
     // render the template
