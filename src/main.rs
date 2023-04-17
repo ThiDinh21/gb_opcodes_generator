@@ -33,7 +33,7 @@ use std::io::Write;
 
 fn main() {
     // scrap html file and save into 2 maps
-    let (non_cb, cb) = scrap_html();
+    // let (non_cb, cb) = scrap_html();
 
     // log the 2 maps into txt file
     // log_scrap_result(&non_cb, "scrap_non_cb.txt");
@@ -43,9 +43,15 @@ fn main() {
     // log_parsed_result(&non_cb, "opcodes_non_cb.json");
     // log_parsed_result(&cb, "opcodes_cb.json");
 
-    generate_opcodes();
+    let result = generate_opcodes();
+
+    match result {
+        Ok(_) => (),
+        Err(e) => println!("Error occured: {:?}", e),
+    }
 }
 
+#[allow(dead_code)]
 fn log_scrap_result(opcode_map: &HashMap<String, String>, filename: &str) {
     let mut file = OpenOptions::new()
         .create(true)
@@ -62,6 +68,7 @@ fn log_scrap_result(opcode_map: &HashMap<String, String>, filename: &str) {
     }
 }
 
+#[allow(dead_code)]
 fn log_parsed_result(data_map: &HashMap<String, String>, filename: &str) {
     let mut opcode_json = HashMap::<String, HashMap<&str, String>>::new();
 

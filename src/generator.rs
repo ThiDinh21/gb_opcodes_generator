@@ -1,19 +1,22 @@
 use lazy_static::lazy_static;
 use serde_json;
 use std::fs::File;
+use std::path::Path;
 use std::{collections::HashMap, io::Read};
 use tera::{to_value, Context, Filter, Tera, Value};
+
+type NestedMap = HashMap<String, HashMap<String, String>>;
 
 pub fn generate_opcodes() -> Result<(), tera::Error> {
     // set up Tera instance
     let mut tera = Tera::default();
     let mut context = Context::new();
 
-    tera.add_template_file("templates/cpu.rs", Some("cpu"))?;
+    tera.add_template_file("templates/cpu.rs", Some("cpu.rs"))?;
 
     tera.register_filter("set_flag", set_flag);
-    tera.register_filter("getter", getter);
-    tera.register_filter("setter", setter);
+    // tera.register_filter("getter", getter);
+    // tera.register_filter("setter", setter);
 
     // open json files and convert them to HashMap<String, String>
     let mut opcode_json = File::open("opcodes_non_cb.json")?;
@@ -24,12 +27,12 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     opcode_json.read_to_string(&mut contents)?;
     opcode_cb_json.read_to_string(&mut contents_cb)?;
 
-    let json: serde_json::Value = serde_json::from_str(&contents)?;
-    let json_cb: serde_json::Value = serde_json::from_str(&contents_cb)?;
+    let contents: NestedMap = serde_json::from_str(&contents).unwrap();
+    let contents_cb: NestedMap = serde_json::from_str(&contents_cb).unwrap();
 
-    let contents: HashMap<String, String> = serde_json::from_value(json)?;
-    let contents_cb: HashMap<String, String> = serde_json::from_value(json_cb)?;
-    let mut merged_contents = HashMap::<String, String>::new();
+    // let contents: HashMap<String, String> = serde_json::from_value(json).unwrap();
+    // let contents_cb: HashMap<String, String> = serde_json::from_value(json_cb).unwrap();
+    let mut merged_contents = NestedMap::new();
 
     for (k, v) in contents {
         let new_key = format!("00{k}");
@@ -43,7 +46,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
 
     // render the template
     context.insert("opcodes", &merged_contents);
-    tera.render("", &context)?;
+    tera.render("cpu.rs", &context)?;
 
     Ok(())
 }
