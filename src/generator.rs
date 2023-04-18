@@ -15,13 +15,13 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     let mut context = Context::new();
 
     tera.add_template_files(vec![
-        ("templates/opcodes.rs", Some("opcodes.rs")),
-        ("templates/macros.rs", Some("macros.rs")),
+        ("templates/opcodes.txt", Some("opcodes.txt")),
+        ("templates/macros.txt", Some("macros.txt")),
     ])?;
 
     tera.register_filter("set_flag", set_flag);
     tera.register_filter("getter", getter);
-    // tera.register_filter("setter", setter);
+    tera.register_filter("setter", setter);
 
     // open json files and convert them to HashMap<String, String>
     let mut opcode_json = File::open("opcodes_non_cb.json")?;
@@ -49,7 +49,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
 
     // render the template
     context.insert("opcodes", &merged_contents);
-    let rendered = tera.render("opcodes.rs", &context)?;
+    let rendered = tera.render("opcodes.txt", &context)?;
 
     println!("{rendered}");
 
@@ -99,7 +99,9 @@ fn getter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
 }
 
 fn setter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
-    todo!()
+    let operand = try_get_value!("argument", "value", String, value);
+    let bits = try_get_value!("argument", "value", usize, map.get("bits").unwrap());
+    Ok(to_value(generate_setter(&operand, bits)).expect("Error generating setter"))
 }
 
 fn generate_getter(operand: &str, bits: usize) -> String {
@@ -148,8 +150,16 @@ fn generate_getter(operand: &str, bits: usize) -> String {
     }
 }
 
-fn generate_setter(value: String, bits: usize) -> tera::Result<Value> {
-    todo!()
+fn generate_setter(operand: &str, bits: usize) -> String {
+    if operand.starts_with("(") {
+        format!(
+            "self.mem_write_{}({})",
+            bits,
+            generate_getter(operand, bits)
+        )
+    } else {
+        format!("self.set_{}", operand)
+    }
 }
 
 fn rm_first_last(s: &str) -> &str {

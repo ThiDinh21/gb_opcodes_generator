@@ -6,6 +6,3 @@
     {{ op.operand[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
-
-
-

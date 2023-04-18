@@ -1,4 +1,4 @@
-{% import "macros.rs" as macros  %}
+{% import "macros.txt" as macros  %}
 
 {% for op in opcodes %}
     {{ op.operands[0] | getter(bits=op.bits) }}
