@@ -3,6 +3,7 @@ use serde_json;
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
+use std::u16;
 use std::{collections::HashMap, io::Read};
 use tera::{to_value, Context, Filter, Tera, Value};
 
@@ -47,6 +48,8 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
         let opcode = Opcode::new(k, v, true);
         merged_contents.push(opcode);
     }
+
+    merged_contents.sort_by(|a, b| hex_to_dec(&a.code).cmp(&hex_to_dec(&b.code)));
 
     // render the template
     context.insert("opcodes", &merged_contents);
@@ -173,4 +176,8 @@ fn write_to_file(text: &str) {
     let filename = "output/opcodes.rs";
     let mut file = File::create(filename).expect("Can't create output file");
     file.write_all(text.as_bytes()).unwrap();
+}
+
+fn hex_to_dec(hex: &str) -> u16 {
+    u16::from_str_radix(hex, 16).expect("Invalid hex string")
 }
