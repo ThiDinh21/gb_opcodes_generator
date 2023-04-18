@@ -61,9 +61,9 @@ fn is_numeric(s: &str) -> bool {
 }
 
 fn set_flag(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
-    let v = try_get_value!("setflag", "value", String, value);
+    let v = try_get_value!("set_flag", "value", String, value);
     // should be Z, N, H or C
-    let flag_char = try_get_value!("setflag", "flg", String, map.get("flg").unwrap());
+    let flag_char = try_get_value!("set_flag", "flg", String, map.get("flg").unwrap());
 
     let flag_name = match flag_char.as_ref() {
         "Z" => "ZERO",
@@ -90,44 +90,65 @@ fn set_flag(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> 
 }
 
 fn getter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
-    let operand = try_get_value!("arg", "value", String, value);
-    let bits = try_get_value!("arg", "value", usize, map.get("bits").unwrap());
-    generate_getter(operand, bits)
+    let operand = try_get_value!("argument", "value", String, value);
+    let bits = try_get_value!("argument", "value", usize, map.get("bits").unwrap());
+    Ok(to_value(generate_getter(&operand, bits)).expect("Error generating getter"))
 }
 
 fn setter(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
     todo!()
 }
 
-fn generate_getter(operand: String, bits: usize) -> tera::Result<Value> {
+fn generate_getter(operand: &str, bits: usize) -> String {
     if is_numeric(&operand) {
-        todo!()
+        operand.to_string()
     } else if operand.ends_with("h") {
-        todo!()
+        let mut chars = operand.chars();
+        chars.next_back();
+        chars.collect::<String>()
+    } else if operand == "NZ" {
+        format!("!self.status.contains(StatusFlags::ZERO)")
+    } else if operand == "NC" {
+        format!("!self.status.contains(StatusFlags::CARRY)")
+    } else if operand == "Z" {
+        format!("self.status.contains(StatusFlags::ZERO)")
+    } else if operand == "C" {
+        format!("self.status.contains(StatusFlags::ZERO)")
+    } else if operand == "u8" || operand == "i8" || operand == "u16" {
+        format!(
+            "self.mem_read_{}(self.program_counter.wrapping_add(op_size))",
+            operand
+        )
+    } else if operand.starts_with("FF") {
+        let mut expr = operand.split("+");
+        let offset = expr.next().expect("No offset");
+        let num = expr.next().expect("No arg");
+        format!("0x{} + {}", offset, generate_getter(num, bits))
+    } else if operand.starts_with("(") {
+        format!(
+            "self.mem_read_u{}({})",
+            bits,
+            generate_getter(rm_first_last(operand), bits)
+        )
+    } else if operand == "SP+i8" {
+        let mut expr = operand.split("+");
+        let sp = expr.next().expect("No SP");
+        let num = expr.next().expect("No i8");
+        format!(
+            "{} + {}",
+            generate_getter(sp, bits),
+            generate_getter(num, bits)
+        )
     } else {
-        let mut operand = operand.as_str();
-        let is_addr = operand.contains("(");
-        if is_addr {
-            operand = &operand[1..operand.len() - 1];
-        }
-
-        match operand {
-            "u8" | "u16" => todo!(),
-            "SP" => todo!(),
-            "SP+i8" => todo!(),
-            "FF00+C" => todo!(),
-            "FF00+u8" => todo!(),
-            "HL+" => todo!(),
-            "HL-" => todo!(),
-            "NZ" => todo!(),
-            "NC" => todo!(),
-            "Z" => todo!(),
-            "C" => todo!(),
-            _ => todo!(),
-        }
+        // for registers + SP
+        format!("self.get_{}()", operand.to_lowercase())
     }
 }
 
 fn generate_setter(value: String, bits: usize) -> tera::Result<Value> {
     todo!()
+}
+
+fn rm_first_last(s: &str) -> &str {
+    &s[1..s.len() - 1]
 }
