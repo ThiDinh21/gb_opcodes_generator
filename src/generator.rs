@@ -14,7 +14,10 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     let mut tera = Tera::default();
     let mut context = Context::new();
 
-    tera.add_template_file("templates/opcodes.rs", Some("cpu.rs"))?;
+    tera.add_template_files(vec![
+        ("templates/opcodes.rs", Some("opcodes.rs")),
+        ("templates/macros.rs", Some("macros.rs")),
+    ])?;
 
     tera.register_filter("set_flag", set_flag);
     tera.register_filter("getter", getter);
@@ -46,7 +49,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
 
     // render the template
     context.insert("opcodes", &merged_contents);
-    let rendered = tera.render("cpu.rs", &context)?;
+    let rendered = tera.render("opcodes.rs", &context)?;
 
     println!("{rendered}");
 

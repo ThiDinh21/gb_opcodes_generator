@@ -56,7 +56,7 @@ impl Opcode {
             operands,
             cycles,
             size: Self::get_number(&data, "size"),
-            z: data.get("K").unwrap().to_string(),
+            z: data.get("Z").unwrap().to_string(),
             n: data.get("N").unwrap().to_string(),
             h: data.get("H").unwrap().to_string(),
             c: data.get("C").unwrap().to_string(),

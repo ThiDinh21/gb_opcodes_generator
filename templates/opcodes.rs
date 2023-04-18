@@ -1,5 +1,5 @@
-// {% import "opcoode_macros.txt" as macros  %}
+{% import "macros.rs" as macros  %}
 
-// {% for op, data in opcodes %}
-
-// {% endfor %}
+{% for op in opcodes %}
+    {{ op.operands[0] | getter(bits=op.bits) }}
+{% endfor %}
