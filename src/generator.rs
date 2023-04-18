@@ -1,6 +1,7 @@
 use lazy_static::lazy_static;
 use serde_json;
 use std::fs::File;
+use std::io::Write;
 use std::path::Path;
 use std::{collections::HashMap, io::Read};
 use tera::{to_value, Context, Filter, Tera, Value};
@@ -51,7 +52,9 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     context.insert("opcodes", &merged_contents);
     let rendered = tera.render("opcodes.txt", &context)?;
 
-    println!("{rendered}");
+    // println!("{rendered}");
+
+    write_to_file(&rendered);
 
     Ok(())
 }
@@ -164,4 +167,10 @@ fn generate_setter(operand: &str, bits: usize) -> String {
 
 fn rm_first_last(s: &str) -> &str {
     &s[1..s.len() - 1]
+}
+
+fn write_to_file(text: &str) {
+    let filename = "output/opcodes.rs";
+    let mut file = File::create(filename).expect("Can't create output file");
+    file.write_all(text.as_bytes()).unwrap();
 }

@@ -1,5 +1,40 @@
 {% import "macros.txt" as macros  %}
+use crate::cpu::alu;
+use lazy_static::lazy_static;
+use std::collections::HashMap;
 
-{% for op in opcodes %}
-    {{ op.operands[0] | getter(bits=op.bits) }}
-{% endfor %}
+pub struct Opcode {
+    pub code: u16,
+    pub mnemonic: &'static str,
+    pub bytes: u8,
+}
+
+impl Opcode {
+    pub fn new(code: u8, mnemonic: &'static str, bytes: u8, cycles: u8) -> Self {
+        Opcode {
+            code,
+            mnemonic,
+            bytes,
+        }
+    }
+}
+
+lazy_static! {
+    pub static ref OPCODES_LIST: Vec<Opcode> = vec![
+        {% for op in opcodes -%}
+            Opcode::new(0x{{op.code}}, "{{op.mnemonic}}", {{op.size}}),
+        {% endfor %}
+    ];
+
+    pub static ref CPU_OPCODES: HashMap<u8, &'static Opcode> = {
+        let mut map = HashMap::new();
+        for opcode in OPCODES_LIST.iter() {
+            map.insert(opcode.code, opcode);
+        }
+        map
+    }
+}
+
+{% for op in opcodes -%}
+    
+{% endfor -%}
