@@ -37,14 +37,23 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
+    {%- if op.operator != "LD" -%}
+        {% continue %}
+    {%- endif -%}
+
     /// {{ op.mnemonic }}
     #[allow(unused_variables)]
     fn op_{{op.code}}(&mut self, op_size: u8) -> u8 {
         {%- if op.operator == "NOP" -%}
-        {{ macors::nop(op=op) }}
+        {{ macros::nop(op=op) }}
 
         {%- elif op.operator == "LD" -%}
         {{ macros::ld(op=op) }}
+            {%- if "HL+" in op.mnemonic -%}
+            self.set_hl(self.get_hl.wrapping_add(1));
+            {%- elif "HL-" in op.mnemonic -%}
+            self.set_hl(self.get_hl.wrapping_sub(1));
+            {%- endif -%}
         {%- endif -%}
 
         {{ op.z | set_flag(flg="Z") }}
