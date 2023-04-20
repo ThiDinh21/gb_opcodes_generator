@@ -2,7 +2,7 @@
 {% endmacro %}
 
 {% macro ld(op) %}
-    let res = {{ op.operand[1] | getter(bits=op.bits) }}
-    {{ op.operand[0] | setter(bits=op.bits) }}res);
+    let res = {{ op.operands[1] | getter(bits=op.bits) }};
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 

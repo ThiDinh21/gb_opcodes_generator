@@ -111,13 +111,13 @@ fn generate_getter(operand: &str, bits: usize) -> String {
         chars.next_back();
         chars.collect::<String>()
     } else if operand == "NZ" {
-        format!("!self.status.contains(StatusFlags::ZERO)")
+        format!("!self.status.contains(StatusFlags::Z)")
     } else if operand == "NC" {
-        format!("!self.status.contains(StatusFlags::CARRY)")
+        format!("!self.status.contains(StatusFlags::C)")
     } else if operand == "Z" {
-        format!("self.status.contains(StatusFlags::ZERO)")
+        format!("self.status.contains(StatusFlags::Z)")
     } else if operand == "C" {
-        format!("self.status.contains(StatusFlags::ZERO)")
+        format!("self.status.contains(StatusFlags::C)")
     } else if operand == "u8" || operand == "i8" || operand == "u16" {
         format!(
             "self.mem_read_{}(self.program_counter.wrapping_add(op_size))",
@@ -157,7 +157,7 @@ fn generate_setter(operand: &str, bits: usize) -> String {
             generate_getter(operand, bits)
         )
     } else {
-        format!("self.set_{}", operand)
+        format!("self.set_{}(", operand.to_lowercase())
     }
 }
 

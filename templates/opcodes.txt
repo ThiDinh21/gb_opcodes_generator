@@ -37,12 +37,15 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
+    /// {{ op.mnemonic }}
+    #[allow(unused_variables)]
     fn op_{{op.code}}(&mut self, op_size: u8) -> u8 {
-        {% if op.operator == "ld" %}
+        {%- if op.operator == "NOP" -%}
+        {{ macors::nop(op=op) }}
 
+        {%- elif op.operator == "LD" -%}
         {{ macros::ld(op=op) }}
-
-        {% endif %}
+        {%- endif -%}
 
         {{ op.z | set_flag(flg="Z") }}
         {{ op.n | set_flag(flg="N") }}
@@ -53,5 +56,5 @@ impl CPU {
     }
 
     
-{% endfor -%}
+{% endfor %}
 }
