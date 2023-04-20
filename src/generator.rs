@@ -7,7 +7,7 @@ use std::u16;
 use std::{collections::HashMap, io::Read};
 use tera::{to_value, Context, Filter, Tera, Value};
 
-use crate::opcode_data::Opcode;
+use crate::opcode_data::{Cycles, Opcode};
 
 type NestedMap = HashMap<String, HashMap<String, String>>;
 
@@ -24,10 +24,11 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     tera.register_filter("set_flag", set_flag);
     tera.register_filter("getter", getter);
     tera.register_filter("setter", setter);
+    tera.register_filter("get_cycles", get_cycles);
 
     // open json files and convert them to HashMap<String, String>
-    let mut opcode_json = File::open("opcodes_non_cb.json")?;
-    let mut opcode_cb_json = File::open("opcodes_cb.json")?;
+    let mut opcode_json = File::open("opcodes_non_cb_test.json")?;
+    let mut opcode_cb_json = File::open("opcodes_cb_test.json")?;
     let mut contents = String::new();
     let mut contents_cb = String::new();
 
@@ -72,25 +73,17 @@ fn is_numeric(s: &str) -> bool {
 fn set_flag(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> {
     let v = try_get_value!("set_flag", "value", String, value);
     // should be Z, N, H or C
-    let flag_char = try_get_value!("set_flag", "flg", String, map.get("flg").unwrap());
-
-    let flag_name = match flag_char.as_ref() {
-        "Z" => "ZERO",
-        "N" => "SUBSTRACTION",
-        "H" => "HALF_CARRY",
-        "C" => "CARRY",
-        _ => panic!("Invalid flag name"),
-    };
+    let flag_name = try_get_value!("set_flag", "flg", String, map.get("flg").unwrap());
 
     if v == "-" {
         Ok(to_value("").unwrap())
     } else if v == "0" {
-        Ok(to_value(format!("self.insert(StatusFlags::{})", flag_name)).unwrap())
+        Ok(to_value(format!("self.insert(StatusFlags::{});", flag_name)).unwrap())
     } else if v == "1" {
-        Ok(to_value(format!("self.clear(StatusFlags::{})", flag_name)).unwrap())
+        Ok(to_value(format!("self.clear(StatusFlags::{});", flag_name)).unwrap())
     } else {
         Ok(to_value(format!(
-            "self.set(StatusFlags::{}, {})",
+            "self.set(StatusFlags::{}, {});",
             flag_name,
             v.to_lowercase()
         ))
@@ -180,4 +173,13 @@ fn write_to_file(text: &str) {
 
 fn hex_to_dec(hex: &str) -> u16 {
     u16::from_str_radix(hex, 16).expect("Invalid hex string")
+}
+
+fn get_cycles(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
+    let v = try_get_value!("untuple", "value", Cycles, value);
+
+    match v {
+        Cycles::One(cycle) => Ok(to_value(&format!("{}", cycle)).unwrap()),
+        Cycles::Two(_, cycle2) => Ok(to_value(&format!("{}", cycle2)).unwrap()),
+    }
 }

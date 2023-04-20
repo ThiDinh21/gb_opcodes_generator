@@ -35,6 +35,23 @@ lazy_static! {
     }
 }
 
-{% for op in opcodes -%}
+impl CPU {
+{% for op in opcodes %}
+    fn op_{{op.code}}(&mut self, op_size: u8) -> u8 {
+        {% if op.operator == "ld" %}
+
+        {{ macros::ld(op=op) }}
+
+        {% endif %}
+
+        {{ op.z | set_flag(flg="Z") }}
+        {{ op.n | set_flag(flg="N") }}
+        {{ op.h | set_flag(flg="H") }}
+        {{ op.c | set_flag(flg="C") }}
+
+        {{ op.cycles | get_cycles }}
+    }
+
     
 {% endfor -%}
+}

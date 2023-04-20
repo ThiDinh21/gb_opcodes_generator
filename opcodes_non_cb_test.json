@@ -1,0 +1,14 @@
+{
+	"F2": {
+		"operator": "LD",
+		"Z": "-",
+		"C": "-",
+		"size": "1",
+		"operands": "A|(FF00+C)",
+		"N": "-",
+		"mnemonic": "LD A,(FF00+C)",
+		"bits": "8",
+		"H": "-",
+		"cycles": "8"
+	}
+}
