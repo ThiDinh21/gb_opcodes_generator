@@ -6,3 +6,8 @@
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
+{% macro add(op) %}
+    (res, z, c, h) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, );
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
+

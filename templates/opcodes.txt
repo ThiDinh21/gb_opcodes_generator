@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "LD" -%}
+    {%- if op.operator != "ADD" -%}
         {% continue %}
     {%- endif -%}
 
@@ -54,6 +54,10 @@ impl CPU {
             {%- elif "HL-" in op.mnemonic -%}
             self.set_hl(self.get_hl.wrapping_sub(1));
             {%- endif -%}
+
+        {%- elif op.operator == "ADD" -%}
+        {{ macros::add(op=op) }}
+
         {%- endif -%}
 
         {{ op.z | set_flag(flg="Z") }}
