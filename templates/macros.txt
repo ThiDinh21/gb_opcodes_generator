@@ -16,7 +16,7 @@
 {% endmacro %}
 
 {% macro add(op) %}
-    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }});
+    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
@@ -27,6 +27,6 @@
 {% endmacro %}
 
 {% macro sub(op) %}
-    (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }});
+    (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
