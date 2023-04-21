@@ -6,16 +6,21 @@
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
-{% macro add(op) %}
-    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, );
-    {{ op.operands[0] | setter(bits=op.bits) }}res);
-{% endmacro %}
-
 {% macro push(op) %}
     self.stack_push_u16({{ op.operands[0] | getter(bits=op.bits) }});
 {% endmacro %}
 
 {% macro pop(op) %}
     let res = self.stack_pop_u16();
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
+
+{% macro add(op) %}
+    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }});
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
+
+{% macro sub(op) %}
+    (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }});
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}

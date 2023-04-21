@@ -37,9 +37,9 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "POP" -%}
+    {%- if op.operator != "SUB" -%}
         {% continue %}
-    {%- endif -%}
+    {%- endif %}
 
     /// {{ op.mnemonic }}
     #[allow(unused_variables)]
@@ -55,14 +55,17 @@ impl CPU {
             self.set_hl(self.get_hl.wrapping_sub(1));
             {%- endif -%}
 
-        {%- elif op.operator == "ADD" -%}
-        {{ macros::add(op=op) }}
-
         {%- elif op.operator == "PUSH" -%}
         {{ macros::push(op=op) }}
 
         {%- elif op.operator == "POP" -%}
         {{ macros::pop(op=op) }}
+
+        {%- elif op.operator == "ADD" -%}
+        {{ macros::add(op=op) }}
+
+        {%- elif op.operator == "SUB" -%}
+        {{ macros::sub(op=op) }}
 
         {%- endif -%}
 
