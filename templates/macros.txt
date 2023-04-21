@@ -21,7 +21,8 @@
 {% endmacro %}
 
 {% macro adc(op) %}
-    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, self.get_c());
+    let carry = self.status.contains(StatusFlags::C);
+    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, carry);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 

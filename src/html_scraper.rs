@@ -56,6 +56,7 @@ fn extract_table(table_body: ElementRef) -> HashMap<String, String> {
             }
 
             // get the hex of the opcode
+            // e.g. 2E
             let mut opcode = format!("{:x}{:x}", msb, lsb);
 
             // get 8 or 16 bit or other

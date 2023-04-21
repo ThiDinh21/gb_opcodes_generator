@@ -40,6 +40,7 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
 
     let mut merged_contents = Vec::<Opcode>::new();
 
+    // merge 2 json file into a map
     for (k, v) in contents {
         let opcode = Opcode::new(k, v, false);
         merged_contents.push(opcode);
@@ -116,7 +117,7 @@ fn generate_getter(operand: &str, bits: usize) -> String {
         format!("!self.status.contains(StatusFlags::C)")
     } else if operand == "Z" {
         format!("self.status.contains(StatusFlags::Z)")
-    } else if operand == "C" {
+    } else if operand == "CF" {
         format!("self.status.contains(StatusFlags::C)")
     } else if operand == "u8" || operand == "i8" || operand == "u16" {
         format!(

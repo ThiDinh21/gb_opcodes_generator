@@ -49,6 +49,9 @@ impl Opcode {
             Cycles::Two(cycles_list[0], cycles_list[1])
         };
 
+        // to make C flag distinguish from register C
+        let c_flag = Self::fix_c_flag(&code, data.get("C").unwrap());
+
         Opcode {
             code,
             mnemonic: data.get("mnemonic").unwrap().to_string(),
@@ -59,7 +62,7 @@ impl Opcode {
             z: data.get("Z").unwrap().to_string(),
             n: data.get("N").unwrap().to_string(),
             h: data.get("H").unwrap().to_string(),
-            c: data.get("C").unwrap().to_string(),
+            c: c_flag,
             bits: Self::get_number(&data, "bits"),
         }
     }
@@ -67,6 +70,16 @@ impl Opcode {
     fn get_number(data: &HashMap<String, String>, field: &str) -> usize {
         let data_as_str = data.get(field).unwrap();
         data_as_str.parse::<usize>().unwrap()
+    }
+
+    fn fix_c_flag(code: &str, current_cf: &str) -> String {
+        if current_cf == "C"
+            && (code == "0038" || code == "00D8" || code == "00DA" || code == "00DC")
+        {
+            "CF".to_string()
+        } else {
+            current_cf.to_string()
+        }
     }
 }
 
