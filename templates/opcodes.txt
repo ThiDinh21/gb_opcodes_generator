@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "PUSH" -%}
+    {%- if op.operator != "POP" -%}
         {% continue %}
     {%- endif -%}
 
@@ -60,6 +60,9 @@ impl CPU {
 
         {%- elif op.operator == "PUSH" -%}
         {{ macros::push(op=op) }}
+
+        {%- elif op.operator == "POP" -%}
+        {{ macros::pop(op=op) }}
 
         {%- endif -%}
 

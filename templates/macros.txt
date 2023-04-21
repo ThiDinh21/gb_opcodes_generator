@@ -14,3 +14,8 @@
 {% macro push(op) %}
     self.stack_push_u16({{ op.operands[0] | getter(bits=op.bits) }});
 {% endmacro %}
+
+{% macro pop(op) %}
+    let res = self.stack_pop_u16();
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
