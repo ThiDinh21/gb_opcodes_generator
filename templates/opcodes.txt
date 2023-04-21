@@ -66,11 +66,13 @@ impl CPU {
 
         {%- endif -%}
 
+        {% if op.code != "00F1" %}
         {{ op.z | set_flag(flg="Z") }}
         {{ op.n | set_flag(flg="N") }}
         {{ op.h | set_flag(flg="H") }}
         {{ op.c | set_flag(flg="C") }}
-
+        {% endif %}
+        
         {{ op.cycles | get_cycles }}
     }
 
