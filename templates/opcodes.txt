@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "ADC" -%}
+    {%- if op.operator != "SBC" -%}
         {% continue %}
     {%- endif %}
 
@@ -69,6 +69,9 @@ impl CPU {
 
         {%- elif op.operator == "SUB" -%}
         {{ macros::sub(op=op) }}
+
+        {%- elif op.operator == "SBC" -%}
+        {{ macros::sbc(op=op) }}
 
         {%- endif -%}
 
