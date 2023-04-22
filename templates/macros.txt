@@ -109,3 +109,7 @@
 {% macro cpl(op) %}
     self.a = !self.a;
 {% endmacro %}
+
+{% macro ccf(op) %}
+    let c = !self.get_cf();
+{% endmacro %}

@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "CPL" -%}
+    {%- if op.operator != "CCF" -%}
         {% continue %}
     {%- endif %}
 
@@ -99,6 +99,9 @@ impl CPU {
 
         {%- elif op.operator == "CPL" -%}
         {{ macros::cpl(op=op) }}
+
+        {%- elif op.operator == "CCF" -%}
+        {{ macros::ccf(op=op) }}
 
         {%- endif -%}
 
