@@ -27,8 +27,8 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     tera.register_filter("get_cycles", get_cycles);
 
     // open json files and convert them to HashMap<String, String>
-    let mut opcode_json = File::open("opcodes_non_cb_test.json")?;
-    let mut opcode_cb_json = File::open("opcodes_cb_test.json")?;
+    let mut opcode_json = File::open("opcodes_non_cb.json")?;
+    let mut opcode_cb_json = File::open("opcodes_cb.json")?;
     let mut contents = String::new();
     let mut contents_cb = String::new();
 

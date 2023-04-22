@@ -68,3 +68,7 @@
     let (res, z, h, _) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, 1, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
+
+{% macro swap(op) %}
+
+{% endmacro %}
