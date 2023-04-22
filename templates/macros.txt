@@ -78,3 +78,30 @@
     {{ op.operands[0] | setter(bits=op.bits) }}res);
     let z = res == 0;
 {% endmacro %}
+
+{% macro daa(op) %}
+    let mut adj = 0;
+
+    let v = self.a as usize;
+
+    if self.get_hf() || (!self.get_nf() && (v & 0x0F > 0x09)) {
+        adj |= 0x06;
+    }
+
+    let c = if self.get_cf() || (!self.get_nf() && v > 0x99) {
+        adj |= 0x60;
+        true
+    } else {
+        false
+    };
+
+    let res = if self.get_nf() {
+        v - adj
+    } else {
+        v + adj
+    };
+    let res = (res & 0xFF) as u8;
+    let z = res == 0;
+
+    self.set_a(res);
+{% endmacro %}
