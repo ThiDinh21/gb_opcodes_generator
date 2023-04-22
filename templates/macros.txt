@@ -54,7 +54,7 @@
 
 {% macro cp(op) %}
     let x = {{ op.operands[1] | getter(bits=op.bits) }};
-    let (res, _, h, _) = alu::sub_u8(self.a, x);
+    let (res, _, h, _) = alu::sub_u8(self.a, x, false);
     let z = res == 0;
     let c = self.a < x;
 {% endmacro %}
