@@ -113,3 +113,6 @@
 {% macro ccf(op) %}
     let c = !self.get_cf();
 {% endmacro %}
+
+{% macro scf(op) %}
+{% endmacro %}
