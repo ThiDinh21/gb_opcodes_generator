@@ -70,5 +70,5 @@
 {% endmacro %}
 
 {% macro swap(op) %}
-
+    
 {% endmacro %}

@@ -43,7 +43,7 @@ impl CPU {
 
     /// {{ op.mnemonic }}
     #[allow(unused_variables)]
-    fn op_{{op.code}}(&mut self, op_size: u8) -> u8 {
+    fn op_{{ op.code | lower }}(&mut self, op_size: u8) -> u8 {
         {%- if op.operator == "NOP" -%}
         {{ macros::nop(op=op) }}
 
