@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "INC" -%}
+    {%- if op.operator != "DEC" -%}
         {% continue %}
     {%- endif %}
 
@@ -87,6 +87,9 @@ impl CPU {
 
         {%- elif op.operator == "INC" -%}
         {{ macros::inc(op=op) }}
+
+        {%- elif op.operator == "DEC" -%}
+        {{ macros::dec(op=op) }}
 
         {%- endif -%}
 
