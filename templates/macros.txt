@@ -42,3 +42,9 @@
     self.a = res;
     let z = res == 0;
 {% endmacro %}
+
+{% macro or(op) %}
+    let res = self.get_a() | {{ op.operands[1] | getter(bits=op.bits) }};
+    self.a = res;
+    let z = res == 0;
+{% endmacro %}

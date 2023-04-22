@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "AND" -%}
+    {%- if op.operator != "OR" -%}
         {% continue %}
     {%- endif %}
 
@@ -75,6 +75,9 @@ impl CPU {
 
         {%- elif op.operator == "AND" -%}
         {{ macros::and(op=op) }}
+
+        {%- elif op.operator == "OR" -%}
+        {{ macros::or(op=op) }}
 
         {%- endif -%}
 
