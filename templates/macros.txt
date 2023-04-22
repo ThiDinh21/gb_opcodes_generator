@@ -38,19 +38,19 @@
 {% endmacro %}
 
 {% macro and(op) %}
-    let res = self.get_a() & {{ op.operands[1] | getter(bits=op.bits) }};
+    let res = self.a & {{ op.operands[1] | getter(bits=op.bits) }};
     self.a = res;
     let z = res == 0;
 {% endmacro %}
 
 {% macro or(op) %}
-    let res = self.get_a() | {{ op.operands[1] | getter(bits=op.bits) }};
+    let res = self.a | {{ op.operands[1] | getter(bits=op.bits) }};
     self.a = res;
     let z = res == 0;
 {% endmacro %}
 
 {% macro xor(op) %}
-    let res = self.get_a() ^ {{ op.operands[1] | getter(bits=op.bits) }};
+    let res = self.a ^ {{ op.operands[1] | getter(bits=op.bits) }};
     self.a = res;
     let z = res == 0;
 {% endmacro %}
