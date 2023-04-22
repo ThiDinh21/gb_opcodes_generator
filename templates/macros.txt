@@ -38,21 +38,18 @@
 {% endmacro %}
 
 {% macro and(op) %}
-    let res = self.a & {{ op.operands[1] | getter(bits=op.bits) }};
-    self.a = res;
-    let z = res == 0;
+    self.a = self.a & {{ op.operands[1] | getter(bits=op.bits) }};
+    let z = self.a == 0;
 {% endmacro %}
 
 {% macro or(op) %}
-    let res = self.a | {{ op.operands[1] | getter(bits=op.bits) }};
-    self.a = res;
-    let z = res == 0;
+    self.a = self.a | {{ op.operands[1] | getter(bits=op.bits) }};
+    let z = self.a == 0;
 {% endmacro %}
 
 {% macro xor(op) %}
-    let res = self.a ^ {{ op.operands[1] | getter(bits=op.bits) }};
-    self.a = res;
-    let z = res == 0;
+    self.a = self.a ^ {{ op.operands[1] | getter(bits=op.bits) }};
+    let z = self.a == 0;
 {% endmacro %}
 
 {% macro cp(op) %}
