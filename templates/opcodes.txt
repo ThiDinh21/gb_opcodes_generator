@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "XOR" -%}
+    {%- if op.operator != "CP" -%}
         {% continue %}
     {%- endif %}
 
@@ -81,6 +81,9 @@ impl CPU {
 
         {%- elif op.operator == "XOR" -%}
         {{ macros::xor(op=op) }}
+
+        {%- elif op.operator == "CP" -%}
+        {{ macros::cp(op=op) }}
 
         {%- endif -%}
 
