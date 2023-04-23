@@ -153,7 +153,7 @@ fn generate_getter(operand: &str, bits: usize) -> String {
 fn generate_setter(operand: &str, bits: usize) -> String {
     if operand.starts_with("(") {
         format!(
-            "self.mem_write_{}({}, ",
+            "self.mem_write_u{}({}, ",
             bits,
             generate_getter(operand, bits)
         )
