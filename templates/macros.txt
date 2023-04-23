@@ -143,3 +143,14 @@
     self.a = self.a.wrapping_shl(1);
     self.a |= if self.get_cf() { 1 } else { 0 }; 
 {% endmacro %}
+
+{% macro rrca(op) %}
+    let c = self.a & 0x01 != 0;
+    self.a = self.a.rotate_right(1);
+{% endmacro %}
+
+{% macro rra(op) %}
+    let c = self.a & 0x01 != 0;
+    self.a = self.a.wrapping_shr(1);
+    self.a |= if self.get_cf() { 0x80 } else { 0 }; 
+{% endmacro %}
