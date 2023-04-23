@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "SRL" -%}
+    {%- if op.operator != "BIT" -%}
         {% continue %}
     {%- endif %}
 
@@ -150,6 +150,9 @@ impl CPU {
 
         {%- elif op.operator == "SRL" -%}
         {{ macros::srl(op=op) }}
+
+        {%- elif op.operator == "BIT" -%}
+        {{ macros::bit(op=op) }}
 
         {%- else -%}
         LMAO XD {{ op.code }}
