@@ -243,3 +243,16 @@
     let v = {{ op.operands[1] | getter(bits=op.bits) }};
     {{ op.operands[1] | setter(bits=op.bits) }}v & test_bits);
 {% endmacro %}
+
+{% macro jp(op) %}
+    self.program_counter = {{ op.operands[0] | getter(bits=16) }};
+{% endmacro %}
+
+{% macro jpif(op) %}
+    let flg = {{ op.operands[0] | getter(bits=16) }};
+    if flg {
+        let pc = {{ op.operands[1] | getter(bits=16) }};
+        self.program_counter = pc;
+        return {{ op.cycles | get_first_cycle }};
+    }
+{% endmacro %}

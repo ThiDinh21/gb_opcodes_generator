@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "RES" -%}
+    {%- if op.operator != "JP" -%}
         {% continue %}
     {%- endif %}
 
@@ -159,6 +159,13 @@ impl CPU {
 
         {%- elif op.operator == "RES" -%}
         {{ macros::res(op=op) }}
+
+        {%- elif op.operator == "JP" -%}
+        {%- if op.operands | is_jpif  == true -%}
+            {{ macros::jpif(op=op) }}
+        {%- else -%}
+            {{ macros::jp(op=op) }}            
+        {%- endif -%}
 
         {%- else -%}
         LMAO XD {{ op.code }}

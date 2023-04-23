@@ -25,6 +25,8 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     tera.register_filter("getter", getter);
     tera.register_filter("setter", setter);
     tera.register_filter("get_cycles", get_cycles);
+    tera.register_filter("get_first_cycle", get_first_cycle);
+    tera.register_filter("is_jpif", is_jpif);
 
     // open json files and convert them to HashMap<String, String>
     let mut opcode_json = File::open("opcodes_non_cb.json")?;
@@ -177,10 +179,26 @@ fn hex_to_dec(hex: &str) -> u16 {
 }
 
 fn get_cycles(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
-    let v = try_get_value!("untuple", "value", Cycles, value);
+    let v = try_get_value!("get_cycles", "value", Cycles, value);
 
     match v {
         Cycles::One(cycle) => Ok(to_value(&format!("{}", cycle)).unwrap()),
         Cycles::Two(_, cycle2) => Ok(to_value(&format!("{}", cycle2)).unwrap()),
+    }
+}
+
+fn get_first_cycle(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
+    let v = try_get_value!("get_first_cycle", "value", Cycles, value);
+
+    match v {
+        Cycles::One(cycle) => Ok(to_value(&format!("{}", cycle)).unwrap()),
+        Cycles::Two(cycle1, _) => Ok(to_value(&format!("{}", cycle1)).unwrap()),
+    }
+}
+
+fn is_jpif(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
+    match &value {
+        Value::Array(o) => Ok(to_value(o.len() > 1).unwrap()),
+        _ => Ok(to_value(false).unwrap()),
     }
 }
