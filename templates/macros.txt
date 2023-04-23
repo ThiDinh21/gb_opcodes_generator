@@ -237,3 +237,9 @@
     let v = {{ op.operands[1] | getter(bits=op.bits) }};
     {{ op.operands[1] | setter(bits=op.bits) }}v | test_bits);
 {% endmacro %}
+
+{% macro res(op) %}
+    let test_bit = !(1 << {{ op.operands[0] | getter(bits=op.bits) }});
+    let v = {{ op.operands[1] | getter(bits=op.bits) }};
+    {{ op.operands[1] | setter(bits=op.bits) }}v & test_bits);
+{% endmacro %}
