@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "RLCA" -%}
+    {%- if op.operator != "RLA" -%}
         {% continue %}
     {%- endif %}
 
@@ -120,6 +120,9 @@ impl CPU {
 
         {%- elif op.operator == "RLCA" -%}
         {{ macros::rlca(op=op) }}
+
+        {%- elif op.operator == "RLA" -%}
+        {{ macros::rla(op=op) }}
 
         {%- endif -%}
 

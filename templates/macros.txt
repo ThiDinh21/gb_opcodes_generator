@@ -137,3 +137,9 @@
     let c = self.a & 0x80 != 0;
     self.a = self.a.rotate_left(1);
 {% endmacro %}
+
+{% macro rla(op) %}
+    let c = self.a & 0x80 != 0;
+    self.a = self.a.wrapping_shl(1);
+    self.a |= if self.get_cf() { 1 } else { 0 }; 
+{% endmacro %}
