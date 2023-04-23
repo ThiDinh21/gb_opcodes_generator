@@ -157,9 +157,11 @@
 
 {% macro rlc(op) %}
     let v = {{ op.operands[0] | getter(bits=op.bits) }};
-    let c = v & 0x80 != 0;
     let res = v.rotate_left(1);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
+
+    let z = res == 0;
+    let c = v & 0x80 != 0;
 {% endmacro %}
 
 {% macro rl(op) %}
