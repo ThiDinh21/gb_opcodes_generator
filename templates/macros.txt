@@ -196,3 +196,23 @@
     let z = res == 0;
     let c = v & 0x01 != 0;
 {% endmacro %}
+
+{% macro sla(op) %}
+  let v = {{ op.operands[0] | getter(bits=op.bits) }};
+  let res = v.wrapping_shl(1);
+  {{ op.operands[0] | setter(bits=op.bits) }}res);
+
+  let z = v == 0;
+  let c = v & 0x80 != 0;
+{% endmacro %}
+
+{% macro sra(op) %}
+  let v = {{ op.operands[0] | getter(bits=op.bits) }};
+  let msb = v & 0x80;
+  let res = v.wrapping_shr(1);
+  let res = res | msb;
+  {{ op.operands[0] | setter(bits=op.bits) }}res);
+
+  let z = res == 0;
+  let c = v & 0x01 != 0;
+{% endmacro %}
