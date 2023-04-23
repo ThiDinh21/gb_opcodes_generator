@@ -154,3 +154,10 @@
     self.a = self.a.wrapping_shr(1);
     self.a |= if self.get_cf() { 0x80 } else { 0 }; 
 {% endmacro %}
+
+{% macro rlc(op) %}
+    let v = {{ op.operands[0] | getter(bits=op.bits) }};
+    let c = v & 0x80 != 0;
+    let res = v.rotate_left(1);
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
