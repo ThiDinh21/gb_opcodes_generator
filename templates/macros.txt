@@ -161,3 +161,15 @@
     let res = v.rotate_left(1);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
+
+{% macro rl(op) %}
+    let v = {{ op.operands[0] | getter(bits=op.bits) }};
+    
+    let mut res = v.wrapping_shl(1);
+    res |= if self.get_cf() { 1 } else { 0 };
+
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+
+    let z = res == 0;
+    let c = v & 0x80 != 0;
+{% endmacro %}
