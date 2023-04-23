@@ -148,6 +148,9 @@ impl CPU {
         {%- elif op.operator == "SRA" -%}
         {{ macros::sra(op=op) }}
 
+        {%- else -%}
+        LMAO XD {{ op.code }}
+
         {%- endif -%}
 
         {% if op.code != "00F1" %}
