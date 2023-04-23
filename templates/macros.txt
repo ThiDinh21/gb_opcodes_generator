@@ -126,9 +126,14 @@
 {% endmacro %}
 
 {% macro di(op) %}
-  self.disable_interrupt();
+    self.disable_interrupt();
 {% endmacro %}
 
 {% macro ei(op) %}
-  self.enable_interrupt();
+    self.enable_interrupt();
+{% endmacro %}
+
+{% macro rlca(op) %}
+    let c = self.a & 0x80 != 0;
+    self.a = self.a.rotate_left(1);
 {% endmacro %}
