@@ -116,3 +116,19 @@
 
 {% macro scf(op) %}
 {% endmacro %}
+
+{% macro halt(op) %}
+    self.halt();
+{% endmacro %}
+
+{% macro stop(op) %}
+    self.stop();
+{% endmacro %}
+
+{% macro di(op) %}
+  self.disable_interrupt();
+{% endmacro %}
+
+{% macro ei(op) %}
+  self.enable_interrupt();
+{% endmacro %}

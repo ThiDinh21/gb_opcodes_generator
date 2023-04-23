@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "SCF" -%}
+    {%- if op.operator != "EI" -%}
         {% continue %}
     {%- endif %}
 
@@ -105,6 +105,18 @@ impl CPU {
 
         {%- elif op.operator == "SCF" -%}
         {{ macros::scf(op=op) }}
+
+        {%- elif op.operator == "HALT" -%}
+        {{ macros::halt(op=op) }}
+
+        {%- elif op.operator == "STOP" -%}
+        {{ macros::stop(op=op) }}
+
+        {%- elif op.operator == "DI" -%}
+        {{ macros::di(op=op) }}
+
+        {%- elif op.operator == "EI" -%}
+        {{ macros::ei(op=op) }}
 
         {%- endif -%}
 
