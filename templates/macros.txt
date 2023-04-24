@@ -291,3 +291,11 @@
 {% macro ret(op) %}
     self.program_counter = self.stack_pop_u16();
 {% endmacro %}
+
+{% macro retif(op) %}
+    let flg = {{ op.operands[0] | getter(bits=8) }};
+    if flg {
+        self.program_counter = self.stack_pop_u16();
+        return {{ op.cycles | get_branch_cycle }};
+    }
+{% endmacro %}

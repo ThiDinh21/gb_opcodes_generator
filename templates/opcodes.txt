@@ -185,7 +185,11 @@ impl CPU {
         {{ macros::rst(op=op) }}
 
         {%- elif op.operator == "RET" -%}
-        {{ macros::ret(op=op) }}
+        {%- if op.code == "00C9" -%}
+            {{ macros::ret(op=op) }}
+        {%- else -%}
+            {{ macros::retif(op=op) }}            
+        {%- endif -%}
 
         {%- else -%}
         LMAO XD {{ op.code }}
