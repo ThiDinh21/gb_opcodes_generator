@@ -215,4 +215,16 @@ impl CPU {
 
     
 {% endfor %}
+    /// decode the opcode and return the cycle
+    fn decode(&mut self, opcode: Opcode, op_size: u8) -> u8 {
+        trace!("{:04x}: {:04x}: {}", cpu.program_counter(), code, mnem(code));
+
+        match opcode.code {
+            {%- for op in opcodes -%}
+            0x{{ op.code }} => self.op_{{ op.code | lower }}(op_size),
+            {%- endfor -%}
+            _ => panic!("Unable to decode opcode: {}", opcode.code),
+        }
+        
+    }
 }
