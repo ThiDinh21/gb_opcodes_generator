@@ -25,8 +25,8 @@ pub fn generate_opcodes() -> Result<(), tera::Error> {
     tera.register_filter("getter", getter);
     tera.register_filter("setter", setter);
     tera.register_filter("get_cycles", get_cycles);
-    tera.register_filter("get_first_cycle", get_first_cycle);
-    tera.register_filter("is_jpif", is_jpif);
+    tera.register_filter("get_branch_cycle", get_branch_cycle);
+    tera.register_filter("is_branch_jp", is_branch_jp);
 
     // open json files and convert them to HashMap<String, String>
     let mut opcode_json = File::open("opcodes_non_cb.json")?;
@@ -186,8 +186,8 @@ fn get_cycles(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> 
     }
 }
 
-fn get_first_cycle(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
-    let v = try_get_value!("get_first_cycle", "value", Cycles, value);
+fn get_branch_cycle(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
+    let v = try_get_value!("get_branch_cycle", "value", Cycles, value);
 
     match v {
         Cycles::One(cycle) => Ok(to_value(&format!("{}", cycle)).unwrap()),
@@ -195,7 +195,7 @@ fn get_first_cycle(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Va
     }
 }
 
-fn is_jpif(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
+fn is_branch_jp(value: &Value, _: &HashMap<String, Value>) -> tera::Result<Value> {
     match &value {
         Value::Array(o) => Ok(to_value(o.len() > 1).unwrap()),
         _ => Ok(to_value(false).unwrap()),

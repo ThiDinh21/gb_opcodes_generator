@@ -161,14 +161,14 @@ impl CPU {
         {{ macros::res(op=op) }}
 
         {%- elif op.operator == "JP" -%}
-        {%- if op.operands | is_jpif  == true -%}
+        {%- if op.operands | is_branch_jp  == true -%}
             {{ macros::jpif(op=op) }}
         {%- else -%}
             {{ macros::jp(op=op) }}            
         {%- endif -%}
 
         {%- elif op.operator == "JR" -%}
-        {%- if op.operands | is_jpif  == true -%}
+        {%- if op.operands | is_branch_jp  == true -%}
             {{ macros::jrif(op=op) }}
         {%- else -%}
             {{ macros::jr(op=op) }}            

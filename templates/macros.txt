@@ -253,7 +253,7 @@
     if flg {
         let pc = {{ op.operands[1] | getter(bits=16) }};
         self.program_counter = pc;
-        return {{ op.cycles | get_first_cycle }};
+        return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
 
@@ -265,6 +265,6 @@
     let flg = {{ op.operands[0] | getter(bits=8) }};
     if flg {
         self.cpu_jr();
-        return {{ op.cycles | get_first_cycle }};
+        return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
