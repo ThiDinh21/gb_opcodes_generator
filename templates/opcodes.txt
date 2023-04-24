@@ -37,14 +37,18 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
+{#
     {%- if op.operator != "RETI" -%}
         {% continue %}
     {%- endif %}
-
+#}
     /// {{ op.mnemonic }}
     #[allow(unused_variables)]
     fn op_{{ op.code | lower }}(&mut self, op_size: u8) -> u8 {
         {%- if op.operator == "NOP" -%}
+        {{ macros::nop(op=op) }}
+
+        {%- elif op.code == "00CB" -%}
         {{ macros::nop(op=op) }}
 
         {%- elif op.operator == "LD" -%}
