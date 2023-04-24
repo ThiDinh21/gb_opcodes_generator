@@ -221,7 +221,9 @@ impl CPU {
     
 {% endfor %}
     /// decode the opcode and return the cycle
-    fn decode(&mut self, opcode: Opcode, op_size: u8) -> u8 {
+    pub fn decode(&mut self, opcode: &Opcode) -> u8 {
+        let op_size = opcode.bytes;
+
         match opcode.code {
             {%- for op in opcodes -%}
             0x{{ op.code }} => self.op_{{ op.code | lower }}(op_size),
