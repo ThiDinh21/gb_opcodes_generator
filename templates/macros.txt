@@ -282,3 +282,8 @@
         return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
+
+{% macro rst(op) %}
+    self.stack_push_u16(self.program_counter);
+    self.program_counter = {{ op.operands[0] | getter(bits=op.bits) }};
+{% endmacro %}

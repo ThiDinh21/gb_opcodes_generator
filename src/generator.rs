@@ -112,7 +112,8 @@ fn generate_getter(operand: &str, bits: usize) -> String {
     } else if operand.ends_with("h") {
         let mut chars = operand.chars();
         chars.next_back();
-        chars.collect::<String>()
+        let res = chars.collect::<String>();
+        format!("0x{res}")
     } else if operand == "NZ" {
         format!("!self.status.contains(StatusFlags::Z)")
     } else if operand == "NC" {
