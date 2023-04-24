@@ -137,7 +137,7 @@ fn generate_getter(operand: &str, bits: usize) -> String {
             bits,
             generate_getter(rm_first_last(operand), bits)
         )
-    } else if operand == "(HL+)" || operand == "(HL-)" {
+    } else if operand == "HL+" || operand == "HL-" {
         format!("self.get_hl()")
     } else {
         // for registers + SP

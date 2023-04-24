@@ -22,7 +22,12 @@
 {% endmacro %}
 
 {% macro add(op) %}
-    let (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
+    let x = {{ op.operands[0] | getter(bits=op.bits) }};
+    let y = {{ op.operands[1] | getter(bits=op.bits) }}
+    {%- if op.code == "00E8" -%}
+    as u16
+    {%- endif -%};
+    let (res, z, h, c) = alu::add_u{{ op.bits }}(x, y, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 

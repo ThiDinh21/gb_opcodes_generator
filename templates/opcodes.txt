@@ -58,9 +58,9 @@ impl CPU {
             {%- else -%}
                 {{ macros::ld(op=op) }}  
                 {%- if "HL+" in op.mnemonic -%}
-                self.set_hl(self.get_hl.wrapping_add(1));
+                self.set_hl(self.get_hl().wrapping_add(1));
                 {%- elif "HL-" in op.mnemonic -%}
-                self.set_hl(self.get_hl.wrapping_sub(1));
+                self.set_hl(self.get_hl().wrapping_sub(1));
                 {%- endif -%}
             {%- endif -%}
 
