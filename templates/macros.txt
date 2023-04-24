@@ -299,3 +299,8 @@
         return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
+
+{% macro reti(op) %}
+    self.program_counter = self.stack_pop_u16();
+    self.enable_interrupt();    
+{% endmacro %}
