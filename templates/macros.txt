@@ -7,11 +7,11 @@
 {% endmacro %}
 
 {% macro push(op) %}
-    self.stack_push_u16({{ op.operands[0] | getter(bits=op.bits) }});
+    self.stack_push({{ op.operands[0] | getter(bits=op.bits) }});
 {% endmacro %}
 
 {% macro pop(op) %}
-    let res = self.stack_pop_u16();
+    let res = self.stack_pop();
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
@@ -270,37 +270,37 @@
 {% endmacro %}
 
 {% macro call(op) %}
-    self.stack_push_u16(self.program_counter.wrapping_add(2));
+    self.stack_push(self.program_counter.wrapping_add(2));
     self.program_counter = {{ op.operands[0] | getter(bits=16) }};
 {% endmacro %}
 
 {% macro callif(op) %}
     let flg = {{ op.operands[0] | getter(bits=8) }};
     if flg {
-        self.stack_push_u16(self.program_counter.wrapping_add(2));
+        self.stack_push(self.program_counter.wrapping_add(2));
         self.program_counter = {{ op.operands[1] | getter(bits=16) }};
         return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
 
 {% macro rst(op) %}
-    self.stack_push_u16(self.program_counter);
+    self.stack_push(self.program_counter);
     self.program_counter = {{ op.operands[0] | getter(bits=op.bits) }};
 {% endmacro %}
 
 {% macro ret(op) %}
-    self.program_counter = self.stack_pop_u16();
+    self.program_counter = self.stack_pop();
 {% endmacro %}
 
 {% macro retif(op) %}
     let flg = {{ op.operands[0] | getter(bits=8) }};
     if flg {
-        self.program_counter = self.stack_pop_u16();
+        self.program_counter = self.stack_pop();
         return {{ op.cycles | get_branch_cycle }};
     }
 {% endmacro %}
 
 {% macro reti(op) %}
-    self.program_counter = self.stack_pop_u16();
+    self.program_counter = self.stack_pop();
     self.enable_interrupt();    
 {% endmacro %}
