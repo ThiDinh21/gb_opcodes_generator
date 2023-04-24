@@ -287,3 +287,7 @@
     self.stack_push_u16(self.program_counter);
     self.program_counter = {{ op.operands[0] | getter(bits=op.bits) }};
 {% endmacro %}
+
+{% macro ret(op) %}
+    self.program_counter = self.stack_pop_u16();
+{% endmacro %}

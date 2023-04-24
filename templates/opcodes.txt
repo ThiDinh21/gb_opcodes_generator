@@ -37,7 +37,7 @@ lazy_static! {
 
 impl CPU {
 {% for op in opcodes %}
-    {%- if op.operator != "RST" -%}
+    {%- if op.operator != "RET" -%}
         {% continue %}
     {%- endif %}
 
@@ -183,6 +183,9 @@ impl CPU {
 
         {%- elif op.operator == "RST" -%}
         {{ macros::rst(op=op) }}
+
+        {%- elif op.operator == "RET" -%}
+        {{ macros::ret(op=op) }}
 
         {%- else -%}
         LMAO XD {{ op.code }}
