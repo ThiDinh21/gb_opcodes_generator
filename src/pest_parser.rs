@@ -10,7 +10,7 @@ pub struct OpcodeParser;
 /// SCF
 /// 1 4t
 /// - 0 0 1
-pub fn parse_str(instruction: String) -> HashMap<&'static str, String> {
+pub fn parse_str(opcode: &str, instruction: String) -> HashMap<&'static str, String> {
     let mut res = HashMap::<&str, String>::new();
 
     let data_parsed_pairs = OpcodeParser::parse(Rule::Instruction, &instruction).unwrap();
@@ -39,7 +39,8 @@ pub fn parse_str(instruction: String) -> HashMap<&'static str, String> {
                             res.insert("operator", inner_text);
                         }
                         Rule::Operand => {
-                            operands_list.push(inner_text);
+                            // to make C flag distinguish from register C
+                            operands_list.push(fix_c_flag(opcode, &inner_text));
                         }
                         _ => (),
                     }
@@ -87,4 +88,12 @@ fn get_flag_value(rule: Rule) -> String {
         _ => panic!("Flag parsed error"),
     }
     .to_string()
+}
+
+fn fix_c_flag(code: &str, current_cf: &str) -> String {
+    if current_cf == "C" && (code == "38" || code == "D8" || code == "DA" || code == "DC") {
+        "CF".to_string()
+    } else {
+        current_cf.to_string()
+    }
 }
