@@ -27,7 +27,7 @@ lazy_static! {
         {% endfor %}
     ];
 
-    pub static ref CPU_OPCODES: HashMap<u8, &'static Opcode> = {
+    pub static ref CPU_OPCODES: HashMap<u16, &'static Opcode> = {
         let mut map = HashMap::new();
         for opcode in OPCODES_LIST.iter() {
             map.insert(opcode.code, opcode);
@@ -218,8 +218,6 @@ impl CPU {
 {% endfor %}
     /// decode the opcode and return the cycle
     fn decode(&mut self, opcode: Opcode, op_size: u8) -> u8 {
-        trace!("{:04x}: {:04x}: {}", cpu.program_counter(), code, mnem(code));
-
         match opcode.code {
             {%- for op in opcodes -%}
             0x{{ op.code }} => self.op_{{ op.code | lower }}(op_size),
