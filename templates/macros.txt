@@ -16,24 +16,24 @@
 {% endmacro %}
 
 {% macro add(op) %}
-    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
+    let (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
 {% macro adc(op) %}
     let carry = self.status.contains(StatusFlags::C);
-    (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, carry);
+    let (res, z, h, c) = alu::add_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, carry);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
 {% macro sub(op) %}
-    (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
+    let (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
 {% macro sbc(op) %}
     let carry = self.status.contains(StatusFlags::C);
-    (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, carry);
+    let (res, z, h, c) = alu::sub_u{{ op.bits }}({{ op.operands[0] | getter(bits=op.bits) }}, {{ op.operands[1] | getter(bits=op.bits) }}, carry);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
