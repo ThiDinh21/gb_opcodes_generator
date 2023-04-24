@@ -81,12 +81,12 @@ fn set_flag(value: &Value, map: &HashMap<String, Value>) -> tera::Result<Value> 
     if v == "-" {
         Ok(to_value("").unwrap())
     } else if v == "0" {
-        Ok(to_value(format!("self.clear(StatusFlags::{});", flag_name)).unwrap())
+        Ok(to_value(format!("self.status.remove(StatusFlags::{});", flag_name)).unwrap())
     } else if v == "1" {
-        Ok(to_value(format!("self.insert(StatusFlags::{});", flag_name)).unwrap())
+        Ok(to_value(format!("self.status.insert(StatusFlags::{});", flag_name)).unwrap())
     } else {
         Ok(to_value(format!(
-            "self.set(StatusFlags::{}, {});",
+            "self.status.set(StatusFlags::{}, {});",
             flag_name,
             v.to_lowercase()
         ))
@@ -157,7 +157,7 @@ fn generate_setter(operand: &str, bits: usize) -> String {
         format!(
             "self.mem_write_u{}({}, ",
             bits,
-            generate_getter(operand, bits)
+            generate_getter(rm_first_last(operand), bits)
         )
     } else {
         format!("self.set_{}(", operand.to_lowercase())
