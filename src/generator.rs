@@ -130,7 +130,7 @@ fn generate_getter(operand: &str, bits: usize) -> String {
         let mut expr = operand.split("+");
         let offset = expr.next().expect("No offset");
         let num = expr.next().expect("No arg");
-        format!("0x{} + {}", offset, generate_getter(num, bits))
+        format!("0x{} + ({} as u16)", offset, generate_getter(num, bits))
     } else if operand.starts_with("(") {
         format!(
             "self.mem_read_u{}({})",
@@ -139,15 +139,6 @@ fn generate_getter(operand: &str, bits: usize) -> String {
         )
     } else if operand == "(HL+)" || operand == "(HL-)" {
         format!("self.get_hl()")
-    } else if operand == "SP+i8" {
-        let mut expr = operand.split("+");
-        let sp = expr.next().expect("No SP");
-        let num = expr.next().expect("No i8");
-        format!(
-            "{} + {}",
-            generate_getter(sp, bits),
-            generate_getter(num, bits)
-        )
     } else {
         // for registers + SP
         format!("self.get_{}()", operand.to_lowercase())

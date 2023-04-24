@@ -6,6 +6,12 @@
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
+{% macro ldspi8(op) %}
+    // Yo MAMA 
+    let (res, _, h, c) = alu::add_u16(self.get_sp(), self.mem_read_u8(self.program_counter) as u16, false);
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
+
 {% macro push(op) %}
     self.stack_push({{ op.operands[0] | getter(bits=op.bits) }});
 {% endmacro %}

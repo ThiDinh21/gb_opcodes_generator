@@ -53,11 +53,15 @@ impl CPU {
         {{ macros::nop(op=op) }}
 
         {%- elif op.operator == "LD" -%}
-        {{ macros::ld(op=op) }}
-            {%- if "HL+" in op.mnemonic -%}
-            self.set_hl(self.get_hl.wrapping_add(1));
-            {%- elif "HL-" in op.mnemonic -%}
-            self.set_hl(self.get_hl.wrapping_sub(1));
+            {%- if op.code == "00F8" -%}
+            {{ macros::ldspi8(op=op) }}
+            {%- else -%}
+                {{ macros::ld(op=op) }}  
+                {%- if "HL+" in op.mnemonic -%}
+                self.set_hl(self.get_hl.wrapping_add(1));
+                {%- elif "HL-" in op.mnemonic -%}
+                self.set_hl(self.get_hl.wrapping_sub(1));
+                {%- endif -%}
             {%- endif -%}
 
         {%- elif op.operator == "PUSH" -%}
