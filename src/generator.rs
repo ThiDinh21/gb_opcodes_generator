@@ -122,12 +122,9 @@ fn generate_getter(operand: &str, bits: usize) -> String {
     } else if operand == "CF" {
         format!("self.status.contains(StatusFlags::C)")
     } else if operand == "i8" {
-        format!("self.mem_read_u8(self.program_counter.wrapping_add(op_size - 1))")
+        format!("self.mem_read_u8(self.program_counter)")
     } else if operand == "u8" || operand == "u16" {
-        format!(
-            "self.mem_read_{}(self.program_counter.wrapping_add(op_size - 1))",
-            operand
-        )
+        format!("self.mem_read_{}(self.program_counter)", operand)
     } else if operand.starts_with("FF") {
         let mut expr = operand.split("+");
         let offset = expr.next().expect("No offset");
