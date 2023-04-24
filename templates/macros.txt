@@ -71,8 +71,8 @@
 
 {% macro swap(op) %}
     let mut res = {{ op.operands[0] | getter(bits=op.bits) }};
-    let most_sig_nib = (x & 0b0000_1111) << 4;
-    let least_sig_nib =(x & 0b1111_0000) >> 4;
+    let most_sig_nib = (res & 0b0000_1111) << 4;
+    let least_sig_nib =(res & 0b1111_0000) >> 4;
     
     res = most_sig_nib | least_sig_nib; 
     {{ op.operands[0] | setter(bits=op.bits) }}res);
