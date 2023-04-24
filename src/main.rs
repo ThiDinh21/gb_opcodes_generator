@@ -36,15 +36,15 @@ use std::io::Write;
 
 fn main() {
     // scrap html file and save into 2 maps
-    let (non_cb, cb) = scrap_html();
+    // let (non_cb, cb) = scrap_html();
 
     // log the 2 maps into txt file
     // log_scrap_result(&non_cb, "scrap_non_cb.txt");
     // log_scrap_result(&cb, "scrap_cb.txt");
 
     // parse the text in the map and save to json files
-    log_parsed_result(&non_cb, "opcodes_non_cb.json");
-    log_parsed_result(&cb, "opcodes_cb.json");
+    // log_parsed_result(&non_cb, "opcodes_non_cb.json");
+    // log_parsed_result(&cb, "opcodes_cb.json");
 
     let result = generate_opcodes();
 
