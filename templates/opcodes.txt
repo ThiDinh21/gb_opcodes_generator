@@ -1,5 +1,6 @@
 {% import "macros.txt" as macros  %}
-use crate::cpu::alu;
+use crate::alu;
+use crate::cpu::{StatusFlags, CPU};
 use lazy_static::lazy_static;
 use std::collections::HashMap;
 
