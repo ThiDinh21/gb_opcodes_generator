@@ -256,3 +256,15 @@
         return {{ op.cycles | get_first_cycle }};
     }
 {% endmacro %}
+
+{% macro jr(op) %}
+    self.cpu_jr();
+{% endmacro %}
+
+{% macro jrif(op) %}
+    let flg = {{ op.operands[0] | getter(bits=8) }};
+    if flg {
+        self.cpu_jr();
+        return {{ op.cycles | get_first_cycle }};
+    }
+{% endmacro %}
