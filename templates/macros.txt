@@ -7,8 +7,7 @@
 {% endmacro %}
 
 {% macro ldspi8(op) %}
-    // Yo MAMA 
-    let (res, _, h, c) = alu::add_u16(self.get_sp(), self.mem_read_u8(self.program_counter) as u16, false);
+    let (res, _, h, c) = alu::add_u16_signed(self.get_sp(), self.mem_read_u8(self.program_counter), false);
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
@@ -23,11 +22,14 @@
 
 {% macro add(op) %}
     let x = {{ op.operands[0] | getter(bits=op.bits) }};
-    let y = {{ op.operands[1] | getter(bits=op.bits) }}
+    let y = {{ op.operands[1] | getter(bits=op.bits) }};
+    
     {%- if op.code == "00E8" -%}
-    as u16
-    {%- endif -%};
-    let (res, z, h, c) = alu::add_u{{ op.bits }}(x, y, false);
+        let (res, z, h, c) = alu::add_u16_signed(x, y, false);
+    {%- else -%}
+        let (res, z, h, c) = alu::add_u{{ op.bits }}(x, y, false);
+    {%- endif -%}
+
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
