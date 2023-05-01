@@ -80,6 +80,11 @@
     {{ op.operands[0] | setter(bits=op.bits) }}res);
 {% endmacro %}
 
+{% macro dechl(op) %}
+    let res = {{ op.operands[0] | getter(bits=op.bits) }}.wrapping_sub(1);
+    {{ op.operands[0] | setter(bits=op.bits) }}res);
+{% endmacro %}
+
 {% macro swap(op) %}
     let mut res = {{ op.operands[0] | getter(bits=op.bits) }};
     let most_sig_nib = (res & 0b0000_1111) << 4;

@@ -98,7 +98,11 @@ impl CPU {
         {{ macros::inc(op=op) }}
 
         {%- elif op.operator == "DEC" -%}
-        {{ macros::dec(op=op) }}
+            {%- if op.bits == 8 -%}
+                {{ macros::dec(op=op) }}
+            {%- else -%}
+                {{ macros::dechl(op=op) }}
+            {%- endif -%}
 
         {%- elif op.operator == "SWAP" -%}
         {{ macros::swap(op=op) }}
