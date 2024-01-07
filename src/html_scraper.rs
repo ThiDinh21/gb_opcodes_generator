@@ -4,16 +4,6 @@ use std::{fs::File, io::Read};
 
 const HTML_FILE_PATH: &str = "gbops.html";
 
-// pub struct OpcodeInfo<'a> {
-//     pub opcode: &'a str,
-//     pub size: &'a str,
-//     pub operator: &'a str,
-//     pub operands: &'a str,
-//     pub operand_width: &'a str,
-//     pub flags: &'a str,
-//     pub cycles: &'a str,
-// }
-
 pub fn scrap_html() -> (HashMap<String, String>, HashMap<String, String>) {
     // open html file in read-only mode
     let mut file =
